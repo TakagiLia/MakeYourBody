@@ -17,6 +17,14 @@ android {
         versionName  = "1.0"
 
         testInstrumentationRunner  = "androidx.test.runner.AndroidJUnitRunner"
+
+        // local.propertiesファイルを指定
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+
+        // buildConfigFieldで値を保存
+        buildConfigField("String", "APPLICATION_KEY", "\"${properties.getProperty("APPLICATION_KEY")}\"")
+        buildConfigField("String", "CLIENT_KEY", "\"${properties.getProperty("CLIENT_KEY")}\"")
     }
 
     buildTypes {
