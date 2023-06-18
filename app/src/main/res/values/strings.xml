@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MakeYourBody</string>
+    <!--ログイン画面で使用-->
+    <string name="login_title">ー　ログインはこちら　ー</string>
+    <string name="login_username">ユーザネーム</string>
+    <string name="login_password">パスワード</string>
+    <string name="login_btn_label">ログイン</string>
+    <string name="login_signup_msg">ー　アカウントをお持ちではない場合　ー</string>
+    <string name="login_signup_btn_label">ユーザを作成</string>
 </resources>
