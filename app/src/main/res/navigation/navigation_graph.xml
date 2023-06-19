@@ -9,6 +9,16 @@
         android:id="@+id/login_screen"
         android:name="com.example.makeyourbody.view.login.LoginFragment"
         android:label="login_screen">
-
+        <action
+            android:id="@+id/action_signup_screen"
+            app:destination="@+id/signup_screen" />
     </fragment>
+
+    <!--ユーザ登録ページ-->
+    <fragment
+        android:id="@+id/signup_screen"
+        android:name="com.example.makeyourbody.view.signup.SignUpFragment"
+        label="signup_screen">
+    </fragment>
+
 </navigation>
