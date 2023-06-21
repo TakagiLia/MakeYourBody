@@ -7,4 +7,24 @@
     tools:context=".view.signup.SignUpFragment"
     >
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/primary_color"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/signup_logo"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:src="@drawable/signup_logo"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
