@@ -1,5 +1,23 @@
 <resources>
     <string name="app_name">MakeYourBody</string>
+
+    <!--サインアップ画面で使用-->
+    <string name="signup_name_label">名前</string>
+    <string name="signup_pass_label">パスワード</string>
+    <string name="signup_age_label">年齢</string>
+    <string name="signup_gender_label">性別</string>
+    <string name="signup_height_label">身長</string>
+    <string name="signup_weight_label">体重</string>
+    <string name="signup_btn_label">ユーザ登録ボタン</string>
+    <!--性別スピナーで利用-->
+    <string name="signup_gender_spinner_pronpt">性別を選択してください</string>
+    <string-array name="signup_gender_spinner">
+        <item>-</item>
+        <item>男性</item>
+        <item>女性</item>
+        <item>その他</item>
+    </string-array>
+
     <!--ログイン画面で使用-->
     <string name="login_title">ー　ログインはこちら　ー</string>
     <string name="login_username">ユーザネーム</string>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.signup.SignUpFragment"
-    >
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    tools:context=".view.signup.SignUpFragment">
 
     <TextView
         android:layout_width="0dp"
@@ -27,4 +30,209 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/signup_name_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/signup_name_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_name_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_logo" />
+
+    <EditText
+        android:id="@+id/signup_name_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:inputType="textPersonName"
+        android:background="@drawable/edittext"
+        android:padding="16dp"
+        android:maxLines="1"
+        android:maxLength="20"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/signup_name_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintStart_toEndOf="@id/signup_name_label"
+        app:layout_constraintTop_toTopOf="@id/signup_name_label" />
+
+    <TextView
+        android:id="@+id/signup_pass_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/signup_pass_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_name_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_name_label" />
+
+    <EditText
+        android:id="@+id/signup_pass_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:inputType="text"
+        android:background="@drawable/edittext"
+        android:padding="16dp"
+        android:maxLines="1"
+        android:maxLength="20"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/signup_pass_label"
+        app:layout_constraintTop_toBottomOf="@id/signup_name_edit"
+        app:layout_constraintTop_toTopOf="@id/signup_pass_label"
+        app:layout_constraintBottom_toBottomOf="@id/signup_pass_label"/>
+
+    <TextView
+        android:id="@+id/signup_age_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/signup_age_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_name_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_pass_label" />
+
+    <EditText
+        android:id="@+id/signup_age_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:inputType="text"
+        android:background="@drawable/edittext"
+        android:padding="16dp"
+        android:maxLines="1"
+        android:maxLength="3"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/signup_age_label"
+        app:layout_constraintTop_toBottomOf="@id/signup_pass_edit"
+        app:layout_constraintTop_toTopOf="@id/signup_age_label"
+        app:layout_constraintBottom_toBottomOf="@id/signup_age_label"/>
+
+    <TextView
+        android:id="@+id/signup_gender_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/signup_gender_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_gender_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_age_label" />
+
+    <EditText
+        android:id="@+id/signup_gender_edit"
+        android:layout_width="284dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:inputType="text"
+        android:background="@drawable/edittext"
+        android:padding="16dp"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/signup_gender_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_age_edit"
+        app:layout_constraintTop_toTopOf="@id/signup_gender_label" />
+
+
+    <TextView
+        android:id="@+id/signup_height_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/signup_height_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_height_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_gender_label" />
+
+    <EditText
+        android:id="@+id/signup_height_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:inputType="number"
+        android:background="@drawable/edittext"
+        android:padding="16dp"
+        android:maxLines="1"
+        android:maxLength="6"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/signup_height_label"
+        app:layout_constraintTop_toBottomOf="@id/signup_age_edit"
+        app:layout_constraintTop_toTopOf="@id/signup_height_label"
+        app:layout_constraintBottom_toBottomOf="@id/signup_height_label"/>
+
+    <TextView
+        android:id="@+id/signup_weight_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/signup_weight_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_height_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_height_label" />
+
+    <EditText
+        android:id="@+id/signup_weight_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:inputType="number"
+        android:background="@drawable/edittext"
+        android:padding="16dp"
+        android:maxLines="1"
+        android:maxLength="6"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_weight_label"
+        app:layout_constraintStart_toEndOf="@id/signup_weight_label"
+        app:layout_constraintTop_toBottomOf="@id/signup_height_edit"
+        app:layout_constraintBottom_toBottomOf="@id/signup_weight_label"/>
+
+    <Button
+        android:id="@+id/signup_userBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_btn_label"
+        android:background="@drawable/button_custom"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        tools:backgroundTint="@color/primary_color"
+        tools:textColor="@color/white"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_weight_edit"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
