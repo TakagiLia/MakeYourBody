@@ -3,39 +3,38 @@ package com.example.makeyourbody.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
-import com.example.makeyourbody.R
 import com.example.makeyourbody.databinding.ViewGenderSelectorBinding
 
 class GenderSelectorView(context: Context, attributeSet: AttributeSet?) :
     FrameLayout(context, attributeSet) {
 
-    private val binding =
-        ViewGenderSelectorBinding.inflate(LayoutInflater.from(context), this, true).apply {
+    private var selectedGender: Gender = Gender.FEMALE
 
-            //ボタン押下時に背景色変更している
-            genderFemale.setOnClickListener {
-                backgroundChange(genderFemale, genderMale, genderOther)
+    private val binding: ViewGenderSelectorBinding =
+        ViewGenderSelectorBinding.inflate(LayoutInflater.from(context), this, true)
+            .apply {
+                // 初期表示でセレクトされた状態にする
+                genderFemale.isSelected = true
+
+                genderFemale.setOnClickListener { switchGender(Gender.FEMALE) }
+
+                genderMale.setOnClickListener { switchGender(Gender.MALE) }
+
+                genderOther.setOnClickListener { switchGender(Gender.OTHER) }
             }
 
-            genderMale.setOnClickListener {
-                backgroundChange(genderMale, genderFemale, genderOther)
-            }
+    private fun switchGender(gender: Gender) {
+        selectedGender = gender
 
-            genderOther.setOnClickListener {
-                backgroundChange(genderOther, genderFemale, genderMale)
-            }
-        }
-
-    private fun backgroundChange(pressed: View, released1: View, released2: View) {
-        if (pressed.isPressed) {
-            pressed.setBackgroundColor(getResources().getColor(R.color.primary_color))
-            released1.setBackgroundColor(getResources().getColor(R.color.pale_red_color))
-            released2.setBackgroundColor(getResources().getColor(R.color.pale_red_color))
-        } else {
-            pressed.setBackgroundColor(getResources().getColor(R.color.pale_red_color))
-        }
-
+        binding.genderFemale.isSelected = (gender == Gender.FEMALE)
+        binding.genderMale.isSelected = (gender == Gender.MALE)
+        binding.genderOther.isSelected = (gender == Gender.OTHER)
     }
+
+    fun getSelectedGender(): Gender = selectedGender
+}
+
+enum class Gender {
+    MALE, FEMALE, OTHER
 }
