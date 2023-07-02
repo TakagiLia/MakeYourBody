@@ -31,13 +31,13 @@ class AgePickerDialog : DialogFragment() {
 
         binding.apply {
 
-            ageDrum1.maxValue = 9
-            ageDrum1.minValue = 0
-            ageDrum2.maxValue = 9
-            ageDrum2.minValue = 0
+            agePicker1.maxValue = 9
+            agePicker1.minValue = 0
+            agePicker2.maxValue = 9
+            agePicker2.minValue = 0
 
             agePickerOkBtn.setOnClickListener {
-                val age = ageDrum1.value.toString() + ageDrum2.value.toString()
+                val age = agePicker1.value.toString() + agePicker2.value.toString()
                 val bundle = bundleOf("age_picker_value" to age)
                 setFragmentResult("request_key", bundle)
                 dismiss()
