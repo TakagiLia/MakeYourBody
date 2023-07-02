@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.makeyourbody.databinding.FragmentSignupBinding
-import com.example.makeyourbody.view.Gender
+import com.example.makeyourbody.view.AgePickerDialog
 
 class SignUpFragment : Fragment(){
 
@@ -16,10 +16,16 @@ class SignUpFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.signupAgeEdit.setOnClickListener {
+            AgePickerDialog().show(parentFragmentManager, tag)
 
-        binding.signupAgeDrum.maxValue = 100
-        binding.signupAgeDrum.minValue = 0
-
+            parentFragmentManager.setFragmentResultListener(
+                "request_key",
+                viewLifecycleOwner
+            ) { _, result: Bundle ->
+                binding.signupAgeEdit.setText(result.getString("age_picker_value"))
+            }
+        }
     }
 
     override fun onCreateView(

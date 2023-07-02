@@ -14,6 +14,11 @@
     <string name="signup_gender_radio_male">男性</string>
     <string name="signup_gender_radio_other">その他</string>
 
+    <!--年齢ダイアログで使用-->
+    <string name="age_picker_title">年齢を入力してください</string>
+    <string name="age_picker_ok">決定</string>
+    <string name="age_picker_cancel">キャンセル</string>
+
     <!--ログイン画面で使用-->
     <string name="login_title">ー　ログインはこちら　ー</string>
     <string name="login_username">ユーザネーム</string>
