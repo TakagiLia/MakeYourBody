@@ -37,7 +37,8 @@ class AgePickerDialog : DialogFragment() {
             agePicker2.minValue = 0
 
             agePickerOkBtn.setOnClickListener {
-                val age = agePicker1.value.toString() + agePicker2.value.toString()
+                val age = (agePicker1.value * 10) + agePicker2.value
+//                val age = agePicker1.value.toString() + agePicker2.value.toString()
                 val bundle = bundleOf("age_picker_value" to age)
                 setFragmentResult("request_key", bundle)
                 dismiss()
