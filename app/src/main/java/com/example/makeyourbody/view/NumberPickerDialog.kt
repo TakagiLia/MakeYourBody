@@ -2,23 +2,28 @@ package com.example.makeyourbody.view
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.activityViewModels
 import com.example.makeyourbody.R
-import com.example.makeyourbody.databinding.ViewAgePickerBinding
+import com.example.makeyourbody.databinding.ViewNumberPickerBinding
+import com.example.makeyourbody.view.signup.SignUpViewModel
 
 class AgePickerDialog : DialogFragment() {
 
-    private var _binding: ViewAgePickerBinding? = null
+    private var _binding: ViewNumberPickerBinding? = null
     private val binding get() = _binding!!
+
+    private val signUpViewModel : SignUpViewModel by activityViewModels()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext())
-        dialog.setContentView(R.layout.view_age_picker)
+
+        dialog.setContentView(R.layout.view_number_picker)
+        //ダイアログのサイズを設定
         dialog.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -31,20 +36,30 @@ class AgePickerDialog : DialogFragment() {
 
         binding.apply {
 
-            agePicker1.maxValue = 9
-            agePicker1.minValue = 0
-            agePicker2.maxValue = 9
-            agePicker2.minValue = 0
+            //ダイアログの範囲設定
+            tensPlacePicker.maxValue = 9
+            onesPlacePicker.maxValue = 9
+            tensPlacePicker.minValue = 0
+            onesPlacePicker.minValue = 0
 
-            agePickerOkBtn.setOnClickListener {
-                val age = (agePicker1.value * 10) + agePicker2.value
-//                val age = agePicker1.value.toString() + agePicker2.value.toString()
-                val bundle = bundleOf("age_picker_value" to age)
-                setFragmentResult("request_key", bundle)
+            //ダイアログ初期値受け取り、加工
+            var ageInit = signUpViewModel.age.value ?: 0
+            var tensPlace = if (ageInit != 0)ageInit.toString().substring(0, 1).toInt() else 0
+            var onesPlace = if (ageInit != 0)ageInit.toString().substring(1, 2).toInt() else 0
+
+            //ダイアログ初期値設定
+            tensPlacePicker.value = tensPlace
+            onesPlacePicker.value = onesPlace
+
+            //ダイアログ決定ボタン押下
+            pickerOkBtn.setOnClickListener {
+                val age = (tensPlacePicker.value * 10) + onesPlacePicker.value
+                signUpViewModel.setAge(age)
                 dismiss()
             }
 
-            agePickerCancelBtn.setOnClickListener {
+            //ダイアログキャンセルボタン押下
+            pickerCancelBtn.setOnClickListener {
                 dismiss()
             }
         }
@@ -55,7 +70,7 @@ class AgePickerDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = ViewAgePickerBinding.inflate(inflater, container, false)
+        _binding = ViewNumberPickerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
