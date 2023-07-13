@@ -2,6 +2,7 @@ package com.example.makeyourbody.view.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.makeyourbody.view.DialogEnum
 
 class SignUpViewModel : ViewModel()  {
 
@@ -20,7 +21,7 @@ class SignUpViewModel : ViewModel()  {
     private val _weight = MutableLiveData<Int>()
     val weight get() = _weight
 
-    private val _dialogType = MutableLiveData<String>()
+    private val _dialogType = MutableLiveData<DialogEnum>()
     val dialogType get() = _dialogType
 
     fun setAge(age : Int){
@@ -35,7 +36,7 @@ class SignUpViewModel : ViewModel()  {
         _weight.value = weight
     }
 
-    fun setDialogType(dialogType: String) {
+    fun setDialogType(dialogType: DialogEnum) {
         _dialogType.value = dialogType
     }
 }

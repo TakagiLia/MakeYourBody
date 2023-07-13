@@ -31,15 +31,35 @@ class SignUpFragment : Fragment() {
 
             //年齢入力欄クリック
             signupAgeEdit.setOnClickListener {
-
-                signUpViewModel.setDialogType(DialogEnum.AGE.type)
+                signUpViewModel.setDialogType(DialogEnum.AGE)
                 AgePickerDialog().show(parentFragmentManager, tag)
-
             }
 
             //年齢項目監視
             signUpViewModel.age.observe(viewLifecycleOwner) { age ->
                 signupAgeEdit.text = age.toString()
+            }
+
+            //身長入力欄クリック
+            signupHeightEdit.setOnClickListener{
+                signUpViewModel.setDialogType(DialogEnum.HEIGHT)
+                AgePickerDialog().show(parentFragmentManager, tag)
+            }
+
+            //身長項目監視
+            signUpViewModel.height.observe(viewLifecycleOwner) { height ->
+                signupHeightEdit.setText(height.toString())
+            }
+
+            //身長入力欄クリック
+            signupWeightEdit.setOnClickListener{
+                signUpViewModel.setDialogType(DialogEnum.WEIGHT)
+                AgePickerDialog().show(parentFragmentManager, tag)
+            }
+
+            //身長項目監視
+            signUpViewModel.weight.observe(viewLifecycleOwner) { weight ->
+                signupWeightEdit.setText(weight.toString())
             }
 
             //パスワードマスクボタン
