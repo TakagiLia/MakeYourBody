@@ -12,6 +12,16 @@
         <action
             android:id="@+id/action_signup_screen"
             app:destination="@+id/signup_screen" />
+        <action
+            android:id="@+id/action_top_screen"
+            app:destination="@+id/top_screen" />
+    </fragment>
+
+    <!--トップページ-->
+    <fragment
+        android:id="@+id/top_screen"
+        android:name="com.example.makeyourbody.top.TopPageFragment"
+        android:label="top_screen">
     </fragment>
 
     <!--ユーザ登録ページ-->
