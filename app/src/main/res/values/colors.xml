@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary_color">#ff4500</color>
     <color name="ripple_color">#80fffafa</color>
+    <color name="solid_color">#37474f</color>
+    <color name="pale_red_color">#90ff4500</color>
 </resources>

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.example.makeyourbody.R
 import com.example.makeyourbody.databinding.FragmentLoginBinding
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -13,6 +15,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //ユーザ登録画面に遷移
+        binding.signupBtn.setOnClickListener { view ->
+            Navigation.findNavController(view).navigate(R.id.action_signup_screen)
+        }
     }
 
     override fun onCreateView(
