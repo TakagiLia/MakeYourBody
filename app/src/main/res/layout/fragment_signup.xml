@@ -152,7 +152,7 @@
 
     <com.example.makeyourbody.view.GenderSelectorView
         android:id="@+id/signup_gender_edit"
-        android:layout_width="284dp"
+        android:layout_width="288dp"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/signup_gender_label"
@@ -224,6 +224,31 @@
         app:layout_constraintTop_toBottomOf="@id/signup_height_edit"
         app:layout_constraintBottom_toBottomOf="@id/signup_weight_label"/>
 
+    <TextView
+        android:id="@+id/signup_attr_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/signup_attr_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/signup_weight_edit"
+        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
+
+    <com.example.makeyourbody.view.AttributeSelectorView
+        android:id="@+id/signup_attr_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/signup_attr_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_weight_edit"
+        app:layout_constraintTop_toTopOf="@id/signup_attr_label"/>
+
     <Button
         android:id="@+id/signup_userBtn"
         android:layout_width="240dp"
@@ -233,11 +258,11 @@
         android:textStyle="bold"
         android:textSize="16sp"
         tools:backgroundTint="@color/primary_color"
-        tools:textColor="@color/white"
-        android:layout_marginTop="80dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_weight_edit"/>
+        app:layout_constraintTop_toBottomOf="@id/signup_attr_edit"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

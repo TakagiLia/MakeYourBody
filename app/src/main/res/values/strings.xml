@@ -8,11 +8,17 @@
     <string name="signup_gender_label">性別</string>
     <string name="signup_height_label">身長</string>
     <string name="signup_weight_label">体重</string>
+    <string name="signup_attr_label">属性</string>
     <string name="signup_btn_label">ユーザ登録ボタン</string>
     <!--性別ラジオボタンで使用-->
     <string name="signup_gender_radio_female">女性</string>
     <string name="signup_gender_radio_male">男性</string>
     <string name="signup_gender_radio_other">その他</string>
+
+    <!--属性選択で利用-->
+    <string name="signup_attr_trainee">トレーニー</string>
+    <string name="signup_attr_trainer">トレーナー</string>
+    <string name="signup_attr_dual">兼任</string>
 
     <!--年齢ダイアログで使用-->
     <string name="age_picker_title">年齢を入力してください</string>
