@@ -86,4 +86,5 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.8.1")
     implementation ("com.google.code.gson:gson:2.8.9")
     implementation(files("libs/NCMB.jar"))
+    implementation("com.google.android.material:material:1.9.0")
 }

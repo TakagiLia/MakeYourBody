@@ -3,6 +3,7 @@
     android:color="@color/ripple_color">
     <item>
         <shape android:shape="rectangle">
+            <solid android:color="@color/primary_color" />
             <!-- 角の丸み設定 -->
             <corners
                 android:radius="20dp"/>
