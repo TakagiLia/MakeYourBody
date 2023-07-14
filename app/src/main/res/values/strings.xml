@@ -10,6 +10,7 @@
     <string name="signup_weight_label">体重</string>
     <string name="signup_attr_label">属性</string>
     <string name="signup_btn_label">ユーザ登録ボタン</string>
+
     <!--性別ラジオボタンで使用-->
     <string name="signup_gender_radio_female">女性</string>
     <string name="signup_gender_radio_male">男性</string>
@@ -32,4 +33,10 @@
     <string name="login_btn_label">ログイン</string>
     <string name="login_signup_msg">ー　アカウントをお持ちではない場合　ー</string>
     <string name="login_signup_btn_label">ユーザを作成</string>
+
+    <!--トップページでの使用-->
+    <string name="top_schedule_btn_label">スケジュール確認</string>
+    <string name="top_menu_btn_label">メニュー作成</string>
+    <string name="top_make_exercise_btn_label">種目作成</string>
+
 </resources>

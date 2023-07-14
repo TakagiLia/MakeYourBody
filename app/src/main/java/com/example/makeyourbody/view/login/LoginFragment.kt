@@ -15,6 +15,12 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //ログイン画面からトップページに遷移
+        binding.loginBtn.setOnClickListener{view ->
+            Navigation.findNavController(view).navigate(R.id.action_top_screen)
+        }
+
         //ユーザ登録画面に遷移
         binding.signupBtn.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(R.id.action_signup_screen)
