@@ -6,7 +6,7 @@
 
         <Button
             android:id="@+id/gender_female"
-            android:layout_width="wrap_content"
+            android:layout_width="94dp"
             android:layout_height="wrap_content"
             android:text="@string/signup_gender_radio_female"
             android:background="@drawable/button_gender_select"
@@ -17,7 +17,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"/>
         <Button
             android:id="@+id/gender_male"
-            android:layout_width="wrap_content"
+            android:layout_width="94dp"
             android:layout_height="wrap_content"
             android:text="@string/signup_gender_radio_male"
             android:background="@drawable/button_gender_select"
@@ -28,7 +28,7 @@
             />
         <Button
             android:id="@+id/gender_other"
-            android:layout_width="wrap_content"
+            android:layout_width="94dp"
             android:layout_height="wrap_content"
             android:text="@string/signup_gender_radio_other"
             android:background="@drawable/button_gender_select"
