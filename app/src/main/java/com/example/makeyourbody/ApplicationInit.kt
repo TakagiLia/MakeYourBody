@@ -15,7 +15,7 @@ class ApplicationInit : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        BuildConfig.DEBUG
+//        BuildConfig.DEBUG
         Log.d("■ApplicationInit","onCreate動く")
         //ニフクラ mobile backendのアプリケーションキーとクライアントキーを利用して、
         // NCMBクラスのinitializeメソッドでAndroid SDKの初期化

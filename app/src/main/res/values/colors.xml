@@ -11,4 +11,5 @@
     <color name="ripple_color">#80fffafa</color>
     <color name="solid_color">#37474f</color>
     <color name="pale_red_color">#90ff4500</color>
+    <color name="origin_red">#ff0000</color>
 </resources>
