@@ -4,26 +4,46 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.databinding.FragmentLoginBinding
+
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
 
     private val binding get() = _binding!!
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //ログイン画面からトップページに遷移
-        binding.loginBtn.setOnClickListener{view ->
-            Navigation.findNavController(view).navigate(R.id.action_top_screen)
-        }
+        binding.apply {
 
-        //ユーザ登録画面に遷移
-        binding.signupBtn.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(R.id.action_signup_screen)
+            loginError.isInvisible = true
+
+            //ログイン画面からトップページに遷移
+            loginBtn.setOnClickListener { view ->
+                var loginName = loginName.text.toString()
+                var loginPass = loginPass.text.toString()
+
+                //ログイン判定
+                var result =
+                    NiftyCloudApiClient().loginConfirm(loginName, loginPass)
+
+                if (result) {
+                    Navigation.findNavController(view).navigate(R.id.action_top_screen)
+                } else {
+                    //エラーメッセージ画面に出力
+                    loginError.isInvisible = false
+                    loginError.text = getString(R.string.login_error_msg)
+                }
+            }
+
+            //ユーザ登録画面に遷移
+            signupBtn.setOnClickListener { view ->
+                Navigation.findNavController(view).navigate(R.id.action_signup_screen)
+            }
         }
     }
 

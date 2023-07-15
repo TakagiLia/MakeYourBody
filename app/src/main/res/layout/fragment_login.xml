@@ -28,15 +28,31 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+        android:id="@+id/login_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_logo"
+        app:layout_constraintBottom_toTopOf="@id/login_name" />
+
+    <TextView
+        android:id="@+id/login_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="エラーメッセージ"
+        android:text="エラーメッセージ"
+        android:textStyle="bold"
+        android:textColor="@color/origin_red"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_msg"
         app:layout_constraintBottom_toTopOf="@id/login_name" />
 
     <EditText
@@ -89,6 +105,7 @@
         android:layout_marginTop="8dp"
         tools:backgroundTint="@color/primary_color"
         tools:textColor="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +133,7 @@
         android:textSize="16sp"
         tools:backgroundTint="@color/primary_color"
         tools:textColor="@color/white"
+        android:textColor="@color/white"
         android:layout_marginBottom="80dp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintBottom_toBottomOf="parent"

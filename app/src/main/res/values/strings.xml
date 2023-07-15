@@ -33,6 +33,7 @@
     <string name="login_btn_label">ログイン</string>
     <string name="login_signup_msg">ー　アカウントをお持ちではない場合　ー</string>
     <string name="login_signup_btn_label">ユーザを作成</string>
+    <string name="login_error_msg">ユーザ名またはパスワードが異なります</string>
 
     <!--トップページでの使用-->
     <string name="top_schedule_btn_label">スケジュール確認</string>
