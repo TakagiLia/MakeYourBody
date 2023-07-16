@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--16進カラーの＃から二桁は透過率を表す-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/ripple_color">
+    <item>
+        <shape android:shape="rectangle">
+
+            <!-- 塗りつぶし color:塗りつぶしの色 -->
+            <solid
+                android:color="@color/primary_color"/>
+
+            <!-- 角の丸み設定 -->
+            <corners
+                android:radius="3dp"/>
+
+        </shape>
+    </item>
+</ripple>
+

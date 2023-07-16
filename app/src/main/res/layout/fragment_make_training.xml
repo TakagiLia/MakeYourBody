@@ -30,5 +30,69 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <TextView
+        android:id="@+id/menu_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/menu_date"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/menu_date_btn"
+        app:layout_constraintTop_toBottomOf="@id/menu_logo" />
+
+    <TextView
+        android:id="@+id/menu_target_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="対象ユーザ"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/menu_target_edit"
+        app:layout_constraintLeft_toRightOf="@id/menu_date_edit"
+        app:layout_constraintTop_toBottomOf="@id/menu_logo" />
+
+    <Button
+        android:id="@+id/menu_date_btn"
+        android:layout_width="80dp"
+        android:layout_height="36dp"
+        android:background="@drawable/button_datepicker"
+        android:text="@string/menu_date_btn"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/menu_date_label"
+        app:layout_constraintTop_toBottomOf="@id/menu_date_label" />
+
+    <TextView
+        android:id="@+id/menu_date_edit"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/menu_date_btn"
+        app:layout_constraintLeft_toRightOf="@id/menu_date_btn"
+        app:layout_constraintRight_toLeftOf="@id/menu_target_edit"
+        app:layout_constraintTop_toTopOf="@id/menu_date_btn" />
+
+    <EditText
+        android:id="@+id/menu_target_edit"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/edittext"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/menu_date_edit"
+        app:layout_constraintLeft_toRightOf="@id/menu_date_edit"
+        app:layout_constraintTop_toBottomOf="@id/menu_date_label"
+        app:layout_constraintTop_toTopOf="@id/menu_date_edit" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
