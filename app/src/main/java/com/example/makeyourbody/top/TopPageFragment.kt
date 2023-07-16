@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.makeyourbody.TrainingType
 import com.example.makeyourbody.databinding.FragmentTopPageBinding
+import com.nifcloud.mbaas.core.NCMBUser
 
 class TopPageFragment : Fragment() {
 
@@ -13,10 +15,34 @@ class TopPageFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
+    private val trainer = TrainingType.TRAINER.type
+    private val trainee = TrainingType.TRAINEE.type
+    private val dual = TrainingType.DUAL.type
 
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+
+            val userAttribute = NCMBUser.currentuser?.get("attribute").toString()
+
+            //ログインユーザの属性によって表示を変える
+            binding.apply {
+                when(userAttribute){
+                    trainer ->{
+                        topTrainerLogo.visibility = View.VISIBLE
+                        scheduleBtn.visibility = View.VISIBLE
+                        menuBtn.visibility = View.VISIBLE
+                        makeExerciseBtn.visibility = View.VISIBLE
+                    }
+                    trainee ->{
+                        topTraineeLogo.visibility = View.VISIBLE
+                        scheduleBtn.visibility = View.VISIBLE
+                    }
+                    dual ->{
+                        topDualLogo.visibility = View.VISIBLE
+                    }
+                }
+            }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
