@@ -27,5 +27,4 @@ class NiftyCloudApiClient {
         }
         return result
     }
-
 }

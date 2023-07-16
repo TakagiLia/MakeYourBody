@@ -8,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import com.example.makeyourbody.R
-import com.example.makeyourbody.data.SignUpUser
 import com.example.makeyourbody.databinding.FragmentSignupBinding
 import com.example.makeyourbody.view.AgePickerDialog
 import com.example.makeyourbody.view.DialogEnum
