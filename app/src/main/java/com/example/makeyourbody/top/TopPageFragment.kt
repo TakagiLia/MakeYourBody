@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.makeyourbody.R
 import com.example.makeyourbody.TrainingType
 import com.example.makeyourbody.databinding.FragmentTopPageBinding
 import com.nifcloud.mbaas.core.NCMBUser
@@ -41,6 +43,12 @@ class TopPageFragment : Fragment() {
                         topDualLogo.visibility = View.VISIBLE
                     }
                 }
+
+                //トレーニングメニュー作成ページに遷移
+                menuBtn.setOnClickListener {
+                    findNavController().navigate(R.id.action_make_menu_screen)
+                }
+
             }
     }
     override fun onCreateView(
