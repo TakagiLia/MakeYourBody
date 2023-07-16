@@ -8,4 +8,9 @@
     <style name="NumberPickerText">
         <item name="android:textSize">24sp</item>
     </style>
+
+    <!--日付ピッカーのカラー-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/primary_color</item>
+    </style>
 </resources>
