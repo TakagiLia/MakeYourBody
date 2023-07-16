@@ -22,13 +22,23 @@
         android:id="@+id/top_screen"
         android:name="com.example.makeyourbody.top.TopPageFragment"
         android:label="top_screen">
+        <action
+            android:id="@+id/action_make_menu_screen"
+            app:destination="@+id/make_menu_screen"/>
     </fragment>
 
     <!--ユーザ登録ページ-->
     <fragment
         android:id="@+id/signup_screen"
         android:name="com.example.makeyourbody.view.signup.SignUpFragment"
-        label="signup_screen">
+        android:label="signup_screen">
+    </fragment>
+
+    <!--トレーニングメニュー作成ページ-->
+    <fragment
+        android:id="@+id/make_menu_screen"
+        android:name="com.example.makeyourbody.maketrainingmenu.MakeTrainingFragment"
+        android:label="make_menu_screen">
     </fragment>
 
 </navigation>
