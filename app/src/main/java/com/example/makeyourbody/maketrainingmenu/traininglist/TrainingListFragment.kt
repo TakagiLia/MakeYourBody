@@ -11,11 +11,10 @@ import android.widget.SearchView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.makeyourbody.ExerciseDetailsViewModel
+import com.example.makeyourbody.TrainingItemViewModel
 import com.example.makeyourbody.NiftyCloudApiClient
 //import com.example.makeyourbody.view.trainingmenu.MakeTrainingViewModel
 import com.example.makeyourbody.R
-import com.example.makeyourbody.databinding.FragmentListTrainingItemBinding
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentTrainingListBinding
 import com.example.makeyourbody.maketrainingmenu.MakeTrainingViewModel
@@ -31,7 +30,7 @@ class TrainingListFragment : DialogFragment() {
 
     private val makeTrainingViewModel: MakeTrainingViewModel by activityViewModels()
     //トレーニングアイテム詳細ページ表示用
-    private val trainingItemViewModel: ExerciseDetailsViewModel by activityViewModels()
+    private val trainingItemViewModel: TrainingItemViewModel by activityViewModels()
 
     private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
         makeTrainingViewModel.setSelectedItem(trainingItem)
