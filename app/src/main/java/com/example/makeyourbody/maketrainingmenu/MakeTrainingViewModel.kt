@@ -2,8 +2,13 @@ package com.example.makeyourbody.maketrainingmenu
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.makeyourbody.data.TrainingItem
 
 class MakeTrainingViewModel : ViewModel()  {
+
+    //トレーニング作成画面　種目マスタの値
+    private val _selectedItems = MutableLiveData<Set<TrainingItem>>()
+    val selectedItems get() = _selectedItems
 
     //トレーニング作成画面　セッション日付
     private val _menuDate = MutableLiveData<String>()
@@ -18,6 +23,22 @@ class MakeTrainingViewModel : ViewModel()  {
     }
     fun setTargetUser(targetUser :String){
         _menuTargetUser.value = targetUser
+    }
+
+    fun setSelectedItem(item: TrainingItem) {
+        val current = _selectedItems.value ?: emptyList()
+
+        val new = current
+            .toMutableSet()
+            .apply {
+                add(item)
+            }
+            .toSet()
+
+        _selectedItems.value = new
+    }
+    fun setSelectedItems(item:List<TrainingItem>){
+        _selectedItems.value = item.toSet()
     }
 
 }
