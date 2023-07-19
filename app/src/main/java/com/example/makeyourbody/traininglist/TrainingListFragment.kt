@@ -3,6 +3,7 @@ package com.example.makeyourbody.maketrainingmenu.traininglist
 import android.app.ActionBar.LayoutParams
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.makeyourbody.TrainingItemViewModel
 import com.example.makeyourbody.NiftyCloudApiClient
-//import com.example.makeyourbody.view.trainingmenu.MakeTrainingViewModel
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentTrainingListBinding
@@ -29,6 +29,7 @@ class TrainingListFragment : DialogFragment() {
     private var trainingItems: List<TrainingItem> = emptyList()
 
     private val makeTrainingViewModel: MakeTrainingViewModel by activityViewModels()
+
     //トレーニングアイテム詳細ページ表示用
     private val trainingItemViewModel: TrainingItemViewModel by activityViewModels()
 
@@ -43,7 +44,6 @@ class TrainingListFragment : DialogFragment() {
 
         //種目マスタ取得、リスト表示
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
-
             trainingItems = NiftyCloudApiClient().getTrainingItemList()
             binding.selectItemList.adapter = TrainingListAdapter(trainingItems, onItemClick)
         }

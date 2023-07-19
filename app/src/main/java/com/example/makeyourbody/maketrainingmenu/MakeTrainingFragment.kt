@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.makeyourbody.DatePickerFragment
+import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentMakeTrainingBinding
 import com.example.makeyourbody.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
-import com.example.makeyourbody.maketrainingmenu.traininglist.TrainingListFragment
+import com.example.makeyourbody.traininglist.TrainingListFragment
 
 
 class MakeTrainingFragment : Fragment() {
@@ -19,6 +20,10 @@ class MakeTrainingFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val makeTrainingViewModel: MakeTrainingViewModel by activityViewModels()
+
+    private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
+        makeTrainingViewModel.deleteSelectedItems(trainingItem)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,14 +44,16 @@ class MakeTrainingFragment : Fragment() {
 
         //トレーニング種目選択リストダイアログ表示
         binding.menuItemSelectBtn.setOnClickListener {
+            Log.d("---MakeTrainingFragment---", "種目選択ボタン押下")
             makeTrainingViewModel.setMenuDate(binding.menuDateEdit.text.toString())
             makeTrainingViewModel.setTargetUser(binding.menuTargetEdit.text.toString())
             TrainingListFragment().show(childFragmentManager,"fragment_list_training_item")
         }
 
         makeTrainingViewModel.selectedItems.observe(viewLifecycleOwner) {
-            binding.menuSelectedItem2.adapter = it?.let{
-                SelectedTrainingListAdapter(it.toList())
+            Log.d("---MakeTrainingFragment---", "makeTrainingViewModel監視")
+            binding.menuSelectedItem.adapter = it?.let{
+                SelectedTrainingListAdapter(it.toList(),onItemClick, makeTrainingViewModel)
             }
         }
     }
@@ -56,13 +63,13 @@ class MakeTrainingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("[TopPageFragment]", "onCreateView()")
+        Log.d("---MakeTrainingFragment---", "onCreateView()")
         _binding = FragmentMakeTrainingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onDestroyView() {
-        Log.d("[TopPageFragment]", "onDestroyView()")
+        Log.d("---TMakeTrainingFragment---", "onDestroyView()")
         super.onDestroyView()
         _binding = null
     }

@@ -41,4 +41,15 @@ class MakeTrainingViewModel : ViewModel()  {
         _selectedItems.value = item.toSet()
     }
 
+    //種目マスタの値を削除
+    fun deleteSelectedItems(item: TrainingItem){
+        val current = _selectedItems.value ?: emptyList()
+        _selectedItems.value = current
+            .toMutableSet()
+            .apply {
+                remove(item)
+            }
+            .toSet()
+    }
+
 }
