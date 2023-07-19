@@ -1,4 +1,4 @@
-package com.example.makeyourbody.maketrainingmenu.traininglist
+package com.example.makeyourbody.traininglist
 
 import android.app.ActionBar.LayoutParams
 import android.app.Dialog
