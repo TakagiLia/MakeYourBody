@@ -1,6 +1,8 @@
 package com.example.makeyourbody
 
 import android.util.Log
+import com.example.makeyourbody.data.TrainingItem
+import com.nifcloud.mbaas.core.NCMBQuery
 import com.nifcloud.mbaas.core.NCMBUser
 
 class NiftyCloudApiClient {
@@ -26,5 +28,22 @@ class NiftyCloudApiClient {
             result = false
         }
         return result
+    }
+
+    //種目マスタのリスト値を全て取得
+    fun getTrainingItemList(): List<TrainingItem> {
+        var trainingItems: List<TrainingItem> = emptyList()
+
+        runCatching {
+            NCMBQuery.forObject("training_items").find()
+        }.onSuccess { objList ->
+            trainingItems = objList.map { obj ->
+                val itemName = obj.getString("item_name") ?: ""
+                val itemContent = obj.getString("item_content") ?: ""
+
+                TrainingItem(itemName, itemContent)
+            }
+        }
+        return trainingItems
     }
 }
