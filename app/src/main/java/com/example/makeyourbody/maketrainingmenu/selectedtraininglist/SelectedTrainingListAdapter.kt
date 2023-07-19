@@ -1,13 +1,17 @@
 package com.example.makeyourbody.maketrainingmenu.selectedtraininglist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
+import com.example.makeyourbody.maketrainingmenu.MakeTrainingViewModel
 
 class SelectedTrainingListAdapter(
-    private val trainingItems: List<TrainingItem>
+    private val trainingItems: List<TrainingItem>,
+    private val deleteSelectedItems: (TrainingItem) -> Unit,
+    private val viewModel: MakeTrainingViewModel
 ) : RecyclerView.Adapter<SelectedTrainingViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectedTrainingViewHolder =
@@ -17,8 +21,15 @@ class SelectedTrainingListAdapter(
         )
 
     override fun onBindViewHolder(holder: SelectedTrainingViewHolder, position: Int) {
+        Log.d("---SelectedTrainingListAdapter---","Selectedリストの設定")
         val trainingItem = trainingItems[position]
         holder.itemName.text = trainingItem.name
+
+        //選択したリストを削除するアイコンボタン押下
+        holder.deleteBtn.setOnClickListener {
+            Log.d("---ListItem Delete---",trainingItem.toString())
+            viewModel.deleteSelectedItems(trainingItem)
+        }
     }
 
     override fun getItemCount(): Int = trainingItems.size
