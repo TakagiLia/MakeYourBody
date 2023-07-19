@@ -1,6 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/menu_logo"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/makemenu_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/menu_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/menu_date"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/menu_date_btn"
+        app:layout_constraintTop_toBottomOf="@id/menu_logo" />
+
+    <TextView
+        android:id="@+id/menu_target_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="対象ユーザ"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/menu_target_edit"
+        app:layout_constraintLeft_toRightOf="@id/menu_date_edit"
+        app:layout_constraintTop_toBottomOf="@id/menu_logo"
+        app:layout_constraintBottom_toTopOf="@id/menu_target_edit"/>
+
+    <Button
+        android:id="@+id/menu_date_btn"
+        android:layout_width="80dp"
+        android:layout_height="36dp"
+        android:background="@drawable/button_datepicker"
+        android:text="@string/menu_date_btn"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/menu_date_label"
+        app:layout_constraintTop_toBottomOf="@id/menu_date_label" />
+
+    <TextView
+        android:id="@+id/menu_date_edit"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/menu_date_btn"
+        app:layout_constraintLeft_toRightOf="@id/menu_date_btn"
+        app:layout_constraintRight_toLeftOf="@id/menu_target_edit"
+        app:layout_constraintTop_toTopOf="@id/menu_date_btn" />
+
+    <EditText
+        android:id="@+id/menu_target_edit"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/edittext"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:maxLength="9"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="@id/menu_date_edit"
+        app:layout_constraintLeft_toRightOf="@id/menu_date_edit"
+        app:layout_constraintTop_toBottomOf="@id/menu_date_label"
+        app:layout_constraintTop_toTopOf="@id/menu_date_edit"
+        />
+
+    <TextView
+        android:id="@+id/menu_content_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_date_btn" />
+
+    <Button
+        android:id="@+id/menu_item_select_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_datepicker"
+        android:text="種目選択"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/menu_content_label"
+        app:layout_constraintTop_toBottomOf="@id/menu_content_label" />
+
+    <TextView
+        android:id="@+id/menu_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_content_detail"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_item_select_btn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menu_selected_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
