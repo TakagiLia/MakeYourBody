@@ -47,4 +47,9 @@
     <string name="menu_content">トレーニング選択</string>
     <string name="menu_content_detail">選択したトレーニング</string>
 
+    <!--種目マスタ作成画面-->
+    <string name="exercise_name">種目名</string>
+    <string name="exercise_content">種目内容</string>
+
+
 </resources>
