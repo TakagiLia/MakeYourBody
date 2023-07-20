@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_make_menu_screen"
             app:destination="@+id/make_menu_screen"/>
+        <action
+            android:id="@+id/action_make_exercise_screen"
+            app:destination="@+id/make_exercise_screen"/>
     </fragment>
 
     <!--ユーザ登録ページ-->
@@ -39,6 +42,13 @@
         android:id="@+id/make_menu_screen"
         android:name="com.example.makeyourbody.maketrainingmenu.MakeTrainingFragment"
         android:label="make_menu_screen">
+    </fragment>
+
+    <!--種目マスタ作成画面-->
+    <fragment
+        android:id="@+id/make_exercise_screen"
+        android:name="com.example.makeyourbody.exercise.MakeExerciseFragment"
+        android:label="make_exercise_screen">
     </fragment>
 
 </navigation>

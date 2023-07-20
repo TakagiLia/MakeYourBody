@@ -49,6 +49,10 @@ class TopPageFragment : Fragment() {
                     findNavController().navigate(R.id.action_make_menu_screen)
                 }
 
+                //種目マスタ作成ページに遷移
+                makeExerciseBtn.setOnClickListener {
+                    findNavController().navigate(R.id.action_make_exercise_screen)
+                }
             }
     }
     override fun onCreateView(
