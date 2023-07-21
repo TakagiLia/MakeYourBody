@@ -51,5 +51,8 @@
     <string name="exercise_name">種目名</string>
     <string name="exercise_content">種目内容</string>
 
+    <!--スケジュール確認画面で利用-->
+    <string name="schedule_date_label">表示したいセッション日</string>
+
 
 </resources>
