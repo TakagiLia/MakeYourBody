@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.makeyourbody.DatePickerFragment
 import com.example.makeyourbody.NiftyCloudApiClient
-import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentScheduleBinding
 import com.example.makeyourbody.schedule.schedulelist.ScheduleListAdapter
@@ -35,6 +32,11 @@ class ScheduleFragment : Fragment() {
                 viewLifecycleOwner
             ) { _, result: Bundle ->
                 binding.scheduleDateEdit.setText(result.getString("date_picker_value"))
+
+                var resultSearch =  binding.scheduleDateEdit.text.toString()?.let{
+                    NiftyCloudApiClient().searchTrainingMenu(it)
+                } ?: NiftyCloudApiClient().getTrainingMenu()
+                binding.scheduleList.adapter = ScheduleListAdapter(resultSearch,view)
             }
         }
 

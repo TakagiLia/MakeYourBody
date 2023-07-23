@@ -68,4 +68,26 @@ class NiftyCloudApiClient {
         }
         return trainingMenus
     }
+
+    //メニューオブジェクト取得(日付絞り込み)
+    fun searchTrainingMenu(searchKey :String): List<TrainingMenu> {
+
+        var trainingMenus: List<TrainingMenu> = emptyList()
+
+        runCatching {
+            val query = NCMBQuery.forObject("main_menus")
+            query.whereEqualTo("menu_date", searchKey)
+            query.find()
+        }.onSuccess { objList ->
+            trainingMenus = objList.map { obj ->
+                val menuDate = obj.getString("menu_date") ?: ""
+                val menuTarget = obj.getString("menu_targetuser") ?: ""
+                val menuTrainer = obj.getString("menu_trainer") ?: ""
+                val menuContent = obj.getString("menu_content") ?: ""
+                val objectId = obj.getObjectId() ?: ""
+                TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
+            }
+        }
+        return trainingMenus
+    }
 }
