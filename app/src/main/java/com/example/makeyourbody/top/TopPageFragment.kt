@@ -44,6 +44,11 @@ class TopPageFragment : Fragment() {
                     }
                 }
 
+                //スケジュール確認ページに遷移
+                scheduleBtn.setOnClickListener {
+                    findNavController().navigate(R.id.action_schedule_screen)
+                }
+
                 //トレーニングメニュー作成ページに遷移
                 menuBtn.setOnClickListener {
                     findNavController().navigate(R.id.action_make_menu_screen)
