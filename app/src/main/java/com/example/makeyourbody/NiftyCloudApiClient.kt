@@ -2,6 +2,7 @@ package com.example.makeyourbody
 
 import android.util.Log
 import com.example.makeyourbody.data.TrainingItem
+import com.example.makeyourbody.data.TrainingMenu
 import com.nifcloud.mbaas.core.NCMBQuery
 import com.nifcloud.mbaas.core.NCMBUser
 
@@ -45,5 +46,26 @@ class NiftyCloudApiClient {
             }
         }
         return trainingItems
+    }
+
+    //メニューオブジェクト取得
+    fun getTrainingMenu(): List<TrainingMenu> {
+
+        var trainingMenus: List<TrainingMenu> = emptyList()
+
+        runCatching {
+            val query = NCMBQuery.forObject("main_menus")
+            query.find()
+        }.onSuccess { objList ->
+            trainingMenus = objList.map { obj ->
+                val menuDate = obj.getString("menu_date") ?: ""
+                val menuTarget = obj.getString("menu_targetuser") ?: ""
+                val menuTrainer = obj.getString("menu_trainer") ?: ""
+                val menuContent = obj.getString("menu_content") ?: ""
+                val objectId = obj.getObjectId() ?: ""
+                TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
+            }
+        }
+        return trainingMenus
     }
 }
