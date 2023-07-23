@@ -90,4 +90,31 @@ class NiftyCloudApiClient {
         }
         return trainingMenus
     }
+
+    //メニュー詳細画面で種目を取得時に利用(リストに含まれている種目を全て取得)
+    fun getTrainingItemBindingMenu(queryword: List<String>): List<TrainingItem> {
+        var trainingItems: List<TrainingItem> = emptyList()
+
+        runCatching {
+            val query = NCMBQuery.forObject("training_items")
+            query.whereContainedInArray("item_name", queryword)
+            query.find()
+        }.onSuccess { objList ->
+            trainingItems = objList.map { obj ->
+                val itemName = obj.getString("item_name") ?: ""
+                val itemContent = obj.getString("item_content") ?: ""
+
+                TrainingItem(itemName, itemContent)
+            }
+        }
+        return trainingItems
+    }
+
+    //メニューレコード種目項目の文字列をバラしてリストに入れ直す
+    fun trainingItemFixList(menuContent: String): List<String> {
+        var fixingStr = menuContent.dropLast(1)
+        fixingStr = fixingStr.drop(1).replace("\\s+".toRegex(), "")
+        var fixingList = fixingStr.split(",")
+        return fixingList
+    }
 }

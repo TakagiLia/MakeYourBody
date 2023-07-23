@@ -25,6 +25,7 @@ class ScheduleFragment : Fragment() {
     private val trainingMenuViewModel: MenuDetailsViewModel by activityViewModels()
 
     private val onDetailBtnClick: (TrainingMenu) -> Unit = { trainingMenu ->
+        trainingMenuViewModel.setMenu(trainingMenu)
         findNavController().navigate(R.id.action_schedule_to_details)
     }
 
