@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.makeyourbody.databinding.FragmentExerciseDetailsBinding
 
+
 class ExerciseDetailsFragment : Fragment() {
 
     private var _binding: FragmentExerciseDetailsBinding? = null
