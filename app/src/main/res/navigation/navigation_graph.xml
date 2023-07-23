@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_make_exercise_screen"
             app:destination="@+id/make_exercise_screen"/>
+        <action
+            android:id="@+id/action_schedule_screen"
+            app:destination="@+id/schedule_screen"/>
     </fragment>
 
     <!--ユーザ登録ページ-->
@@ -49,6 +52,13 @@
         android:id="@+id/make_exercise_screen"
         android:name="com.example.makeyourbody.exercise.MakeExerciseFragment"
         android:label="make_exercise_screen">
+    </fragment>
+
+    <!--スケジュール表示画面-->
+    <fragment
+        android:id="@+id/schedule_screen"
+        android:name="com.example.makeyourbody.schedule.ScheduleFragment"
+        android:label="schedule_screen">
     </fragment>
 
 </navigation>
