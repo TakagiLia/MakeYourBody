@@ -2,7 +2,6 @@ package com.example.makeyourbody.schedule.schedulelist
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.makeyourbody.R
@@ -11,8 +10,7 @@ import com.example.makeyourbody.data.TrainingMenu
 
 class ScheduleListAdapter(
     private val menuList: List<TrainingMenu>,
-    private val view: View,
-    //private val onItemClick: (TrainingMenu) -> Unit
+    private val onItemClick: (TrainingMenu) -> Unit
 ) :
     RecyclerView.Adapter<ScheduleListViewHolder>() {
 
@@ -28,12 +26,10 @@ class ScheduleListAdapter(
         holder.trainingdate.text = menu.menuDate
         holder.training_target.text = menu.menuTarget
 
-//        holder.trainingDetailBtn.setOnClickListener {
-//            Log.d("■スケージュールリストのボタン", menu.toString())
-//            Log.d("■スケージュールリストのボタン", "スケージュールリストのボタン")
-//            onItemClick(menu)
-//        }
-
+        holder.trainingDetailBtn.setOnClickListener {
+            Log.d("---click trainingDetailBtn---", menu.toString())
+            onItemClick(menu)
+        }
     }
 
     override fun getItemCount(): Int = menuList.size
