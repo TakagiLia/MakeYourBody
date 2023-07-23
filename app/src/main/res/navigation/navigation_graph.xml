@@ -59,6 +59,16 @@
         android:id="@+id/schedule_screen"
         android:name="com.example.makeyourbody.schedule.ScheduleFragment"
         android:label="schedule_screen">
+        <action
+            android:id="@+id/action_schedule_to_details"
+            app:destination="@id/menu_details_screen" />
+    </fragment>
+
+    <!--メニュー詳細画面のフラグメント-->
+    <fragment
+        android:id="@+id/menu_details_screen"
+        android:name="com.example.makeyourbody.view.menudetails.MenuDetailsFragment"
+        android:label="menu_details">
     </fragment>
 
 </navigation>
