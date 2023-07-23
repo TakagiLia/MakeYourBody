@@ -57,5 +57,9 @@
     <string name="schedule_details_btn_label">詳細</string>
     <string name="schedule_list_label">スケジュール検索結果</string>
 
+    <!--メニュー詳細画面で利用-->
+    <string name="menu_training_label">トレーニングメニュー</string>
+    <string name="menu_edit_btn_label">編集する</string>
+
 
 </resources>
