@@ -12,7 +12,7 @@ import com.example.makeyourbody.data.TrainingMenu
 class ScheduleListAdapter(
     private val menuList: List<TrainingMenu>,
     private val view: View,
-    private val onItemClick: (TrainingMenu) -> Unit
+    //private val onItemClick: (TrainingMenu) -> Unit
 ) :
     RecyclerView.Adapter<ScheduleListViewHolder>() {
 
@@ -28,11 +28,11 @@ class ScheduleListAdapter(
         holder.trainingdate.text = menu.menuDate
         holder.training_target.text = menu.menuTarget
 
-        holder.trainingDetailBtn.setOnClickListener {
-            Log.d("■スケージュールリストのボタン", menu.toString())
-            Log.d("■スケージュールリストのボタン", "スケージュールリストのボタン")
-            onItemClick(menu)
-        }
+//        holder.trainingDetailBtn.setOnClickListener {
+//            Log.d("■スケージュールリストのボタン", menu.toString())
+//            Log.d("■スケージュールリストのボタン", "スケージュールリストのボタン")
+//            onItemClick(menu)
+//        }
 
     }
 

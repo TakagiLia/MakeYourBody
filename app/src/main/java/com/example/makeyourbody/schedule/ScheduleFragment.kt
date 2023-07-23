@@ -5,13 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.makeyourbody.DatePickerFragment
+import com.example.makeyourbody.NiftyCloudApiClient
+import com.example.makeyourbody.R
+import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentScheduleBinding
+import com.example.makeyourbody.schedule.schedulelist.ScheduleListAdapter
 
 class ScheduleFragment : Fragment() {
 
     private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
+
+    private var menuList : List<TrainingMenu> = emptyList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,6 +37,10 @@ class ScheduleFragment : Fragment() {
                 binding.scheduleDateEdit.setText(result.getString("date_picker_value"))
             }
         }
+
+        //スケジュール表示(初期)                                                                                                                                                                                                                                                                                        リスト設定
+        menuList = NiftyCloudApiClient().getTrainingMenu()
+        binding.scheduleList.adapter = ScheduleListAdapter(menuList,view)
     }
 
     override fun onCreateView(

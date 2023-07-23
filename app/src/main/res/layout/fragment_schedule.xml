@@ -60,4 +60,28 @@
         app:layout_constraintLeft_toRightOf="@id/schedule_date_btn"
         app:layout_constraintTop_toTopOf="@id/schedule_date_btn" />
 
+    <TextView
+        android:id="@+id/schedule_list_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/schedule_list_label"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/schedule_date_edit" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/schedule_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/schedule_list_label"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

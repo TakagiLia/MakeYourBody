@@ -55,6 +55,7 @@
     <string name="schedule_date_label">表示したいセッション日</string>
     <string name="schedule_list_target_label">対象ユーザ：</string>
     <string name="schedule_details_btn_label">詳細</string>
+    <string name="schedule_list_label">スケジュール検索結果</string>
 
 
 </resources>
