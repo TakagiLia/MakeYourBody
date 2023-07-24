@@ -69,6 +69,16 @@
         android:id="@+id/menu_details_screen"
         android:name="com.example.makeyourbody.view.menudetails.MenuDetailsFragment"
         android:label="menu_details">
+        <action
+            android:id="@+id/action_menu_details_to_exercise_details_screen"
+            app:destination="@id/exercise_details_screen"/>
+    </fragment>
+
+    <!--種目の詳細ページのフラグメント-->
+    <fragment
+        android:id="@+id/exercise_details_screen"
+        android:name="com.example.makeyourbody.view.exercisedetails.ExerciseDetailsFragment"
+        android:label="exercise_details">
     </fragment>
 
 </navigation>
