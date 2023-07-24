@@ -9,7 +9,7 @@ import com.example.makeyourbody.data.TrainingItem
 
 class MenuDetailsListAdapter (
     private val trainingManus: List<TrainingItem>,
-//    private val onClickInfoBtn: (TrainingItem)-> Unit
+    private val onClickInfoBtn: (TrainingItem)-> Unit
 ) : RecyclerView.Adapter<MenuDetailsListViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuDetailsListViewHolder =
@@ -22,10 +22,10 @@ class MenuDetailsListAdapter (
         val trainingMenu = trainingManus[position]
         holder.menuName.text = trainingMenu.name
 
-//        holder.infoBtn.setOnClickListener {
-//            Log.d("--Click List InfoBtn---",trainingManus[position].toString())
-//            onClickInfoBtn(trainingManus[position])
-//        }
+        holder.infoBtn.setOnClickListener {
+            Log.d("--Click List InfoBtn---",trainingManus[position].toString())
+            onClickInfoBtn(trainingManus[position])
+        }
     }
 
     override fun getItemCount(): Int = trainingManus.size
