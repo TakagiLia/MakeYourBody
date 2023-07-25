@@ -1,29 +1,33 @@
-package com.example.makeyourbody.maketrainingmenu.selectedtraininglist
+package com.example.makeyourbody.view.schedule.schedulelist
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.makeyourbody.databinding.FragmentListSelectedTrainingBinding
+import com.example.makeyourbody.databinding.FragmentListScheduleBinding
 
-class SelectedTrainingListFragment :Fragment(){
+class ScheduleListFragment :Fragment() {
 
-    private var _binding: FragmentListSelectedTrainingBinding? = null
+    private var _binding: FragmentListScheduleBinding? = null
+
     private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
 
-        _binding = FragmentListSelectedTrainingBinding.inflate(inflater, container, false)
-
+        _binding = FragmentListScheduleBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

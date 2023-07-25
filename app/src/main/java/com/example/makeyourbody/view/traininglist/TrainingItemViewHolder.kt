@@ -1,4 +1,4 @@
-package com.example.makeyourbody.traininglist
+package com.example.makeyourbody.view.traininglist
 
 import android.view.View
 import android.widget.TextView

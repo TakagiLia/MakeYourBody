@@ -1,4 +1,4 @@
-package com.example.makeyourbody
+package com.example.makeyourbody.view.signup
 
 enum class TrainingType(val type : String) {
 

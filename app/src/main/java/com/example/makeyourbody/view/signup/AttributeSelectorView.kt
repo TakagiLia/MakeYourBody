@@ -1,4 +1,4 @@
-package com.example.makeyourbody.view
+package com.example.makeyourbody.view.signup
 
 import android.content.Context
 import android.util.AttributeSet

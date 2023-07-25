@@ -10,8 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.makeyourbody.R
 import com.example.makeyourbody.databinding.FragmentSignupBinding
-import com.example.makeyourbody.view.AgePickerDialog
-import com.example.makeyourbody.view.DialogEnum
+import com.example.makeyourbody.view.dialog.DialogEnum
 
 class SignUpFragment : Fragment() {
 

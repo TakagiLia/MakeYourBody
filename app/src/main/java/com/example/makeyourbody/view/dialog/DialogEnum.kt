@@ -1,4 +1,4 @@
-package com.example.makeyourbody.view
+package com.example.makeyourbody.view.dialog
 
 enum class DialogEnum(val type : String) {
 

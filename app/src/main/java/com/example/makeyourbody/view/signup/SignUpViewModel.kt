@@ -2,7 +2,7 @@ package com.example.makeyourbody.view.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.makeyourbody.view.DialogEnum
+import com.example.makeyourbody.view.dialog.DialogEnum
 
 class SignUpViewModel : ViewModel()  {
 

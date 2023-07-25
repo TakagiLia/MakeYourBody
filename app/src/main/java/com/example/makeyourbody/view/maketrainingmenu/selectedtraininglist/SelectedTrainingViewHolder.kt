@@ -1,4 +1,4 @@
-package com.example.makeyourbody.maketrainingmenu.selectedtraininglist
+package com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist
 
 import android.view.View
 import android.widget.ImageButton

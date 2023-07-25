@@ -150,7 +150,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/signup_age_label" />
 
-    <com.example.makeyourbody.view.GenderSelectorView
+    <com.example.makeyourbody.view.signup.GenderSelectorView
         android:id="@+id/signup_gender_edit"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
 
-    <com.example.makeyourbody.view.AttributeSelectorView
+    <com.example.makeyourbody.view.signup.AttributeSelectorView
         android:id="@+id/signup_attr_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

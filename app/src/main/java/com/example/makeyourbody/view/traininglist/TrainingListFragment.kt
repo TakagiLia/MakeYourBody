@@ -1,9 +1,8 @@
-package com.example.makeyourbody.traininglist
+package com.example.makeyourbody.view.traininglist
 
 import android.app.ActionBar.LayoutParams
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,11 @@ import android.widget.SearchView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.makeyourbody.TrainingItemViewModel
 import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentTrainingListBinding
-import com.example.makeyourbody.maketrainingmenu.MakeTrainingViewModel
+import com.example.makeyourbody.view.maketrainingmenu.MakeTrainingViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
