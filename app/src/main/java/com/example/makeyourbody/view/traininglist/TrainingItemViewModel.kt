@@ -1,4 +1,4 @@
-package com.example.makeyourbody
+package com.example.makeyourbody.view.traininglist
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

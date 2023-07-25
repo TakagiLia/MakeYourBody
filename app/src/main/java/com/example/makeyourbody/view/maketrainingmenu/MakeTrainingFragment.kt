@@ -1,4 +1,4 @@
-package com.example.makeyourbody.maketrainingmenu
+package com.example.makeyourbody.view.maketrainingmenu
 
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.makeyourbody.DatePickerFragment
+import com.example.makeyourbody.view.dialog.DatePickerFragment
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentMakeTrainingBinding
-import com.example.makeyourbody.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
-import com.example.makeyourbody.traininglist.TrainingListFragment
+import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
+import com.example.makeyourbody.view.traininglist.TrainingListFragment
 
 
 class MakeTrainingFragment : Fragment() {

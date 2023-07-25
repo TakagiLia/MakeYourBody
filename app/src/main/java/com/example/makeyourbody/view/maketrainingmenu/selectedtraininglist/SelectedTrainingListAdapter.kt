@@ -1,4 +1,4 @@
-package com.example.makeyourbody.maketrainingmenu.selectedtraininglist
+package com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
-import com.example.makeyourbody.maketrainingmenu.MakeTrainingViewModel
+import com.example.makeyourbody.view.maketrainingmenu.MakeTrainingViewModel
 
 class SelectedTrainingListAdapter(
     private val trainingItems: List<TrainingItem>,

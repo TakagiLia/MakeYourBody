@@ -20,7 +20,7 @@
     <!--トップページ-->
     <fragment
         android:id="@+id/top_screen"
-        android:name="com.example.makeyourbody.top.TopPageFragment"
+        android:name="com.example.makeyourbody.view.top.TopPageFragment"
         android:label="top_screen">
         <action
             android:id="@+id/action_make_menu_screen"
@@ -43,21 +43,21 @@
     <!--トレーニングメニュー作成ページ-->
     <fragment
         android:id="@+id/make_menu_screen"
-        android:name="com.example.makeyourbody.maketrainingmenu.MakeTrainingFragment"
+        android:name="com.example.makeyourbody.view.maketrainingmenu.MakeTrainingFragment"
         android:label="make_menu_screen">
     </fragment>
 
     <!--種目マスタ作成画面-->
     <fragment
         android:id="@+id/make_exercise_screen"
-        android:name="com.example.makeyourbody.exercise.MakeExerciseFragment"
+        android:name="com.example.makeyourbody.view.exercise.MakeExerciseFragment"
         android:label="make_exercise_screen">
     </fragment>
 
     <!--スケジュール表示画面-->
     <fragment
         android:id="@+id/schedule_screen"
-        android:name="com.example.makeyourbody.schedule.ScheduleFragment"
+        android:name="com.example.makeyourbody.view.schedule.ScheduleFragment"
         android:label="schedule_screen">
         <action
             android:id="@+id/action_schedule_to_details"

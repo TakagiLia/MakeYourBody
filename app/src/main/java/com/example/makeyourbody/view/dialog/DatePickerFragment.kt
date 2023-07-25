@@ -1,4 +1,4 @@
-package com.example.makeyourbody
+package com.example.makeyourbody.view.dialog
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
+import com.example.makeyourbody.R
 import java.util.Calendar
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener  {
@@ -22,7 +23,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        return DatePickerDialog(requireContext(),R.style.AppTheme, this, year, month, day)
+        return DatePickerDialog(requireContext(), R.style.AppTheme, this, year, month, day)
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {

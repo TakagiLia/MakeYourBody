@@ -1,4 +1,4 @@
-package com.example.makeyourbody.schedule
+package com.example.makeyourbody.view.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.makeyourbody.DatePickerFragment
+import com.example.makeyourbody.view.dialog.DatePickerFragment
 import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentScheduleBinding
-import com.example.makeyourbody.schedule.schedulelist.ScheduleListAdapter
+import com.example.makeyourbody.view.schedule.schedulelist.ScheduleListAdapter
 import com.example.makeyourbody.view.menudetails.MenuDetailsViewModel
 
 class ScheduleFragment : Fragment() {

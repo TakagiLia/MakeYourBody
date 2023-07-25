@@ -1,4 +1,4 @@
-package com.example.makeyourbody.schedule.schedulelist
+package com.example.makeyourbody.view.schedule.schedulelist
 
 import android.view.View
 import android.widget.Button

@@ -1,4 +1,4 @@
-package com.example.makeyourbody.top
+package com.example.makeyourbody.view.top
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.makeyourbody.R
-import com.example.makeyourbody.TrainingType
+import com.example.makeyourbody.view.signup.TrainingType
 import com.example.makeyourbody.databinding.FragmentTopPageBinding
 import com.nifcloud.mbaas.core.NCMBUser
 
