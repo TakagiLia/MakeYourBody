@@ -3,8 +3,14 @@ package com.example.makeyourbody
 import android.util.Log
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.data.TrainingMenu
+import com.nifcloud.mbaas.core.NCMBObject
 import com.nifcloud.mbaas.core.NCMBQuery
 import com.nifcloud.mbaas.core.NCMBUser
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZonedDateTime
+import java.util.Date
+import java.util.Locale
 
 class NiftyCloudApiClient {
 
@@ -116,5 +122,21 @@ class NiftyCloudApiClient {
         fixingStr = fixingStr.drop(1).replace("\\s+".toRegex(), "")
         var fixingList = fixingStr.split(",")
         return fixingList
+    }
+
+    //メニュー登録画面でSave時
+    fun saveMenuObject(selectedItems: String, menuDateEdit: Date, menuTargetEdit: String) {
+        runCatching {
+            var ncmbObj = NCMBObject("main_menus")
+
+            ncmbObj.put("menu_content", selectedItems)
+            ncmbObj.put("menu_date", menuDateEdit)
+            ncmbObj.put("menu_targetuser", menuTargetEdit)
+            ncmbObj.save()
+        }.onSuccess {
+            Log.d("--success--", "メニュー登録に成功しました")
+        }.onFailure {
+            Log.d("--failure--", "メニュー登録に失敗しました" + it.message)
+        }
     }
 }
