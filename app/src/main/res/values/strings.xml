@@ -5,12 +5,16 @@
     <string name="signup_logo">ユーザ登録ページのロゴ</string>
     <string name="signup_name_label">名前</string>
     <string name="signup_name_hint">名前入力</string>
+    <string name="signup_login_name_label">ユーザ名</string>
+    <string name="signup_login_name_hint">ユーザ名入力(半角英数)</string>
     <string name="signup_pass_label">パスワード</string>
+    <string name="signup_pass_hint">パスワード名入力(半角英数)</string>
     <string name="signup_age_label">年齢</string>
     <string name="signup_gender_label">性別</string>
     <string name="signup_height_label">身長</string>
     <string name="signup_weight_label">体重</string>
     <string name="signup_attr_label">属性</string>
+    <string name="signup_dialog_hint">ダイアログで選択</string>
     <string name="signup_btn_label">ユーザ登録ボタン</string>
 
     <!--性別ラジオボタンで使用-->
