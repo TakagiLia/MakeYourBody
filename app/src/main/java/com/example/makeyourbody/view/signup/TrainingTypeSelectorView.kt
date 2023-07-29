@@ -6,40 +6,35 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.example.makeyourbody.databinding.ViewAttributeSelectorBinding
 
-class AttributeSelectorView (context: Context, attributeSet: AttributeSet?) :
+class TrainingTypeSelectorView(context: Context, attributeSet: AttributeSet?) :
     FrameLayout(context, attributeSet) {
 
-    private var selectedAttr: Attribute = Attribute.TRAINEE
+    private val binding: ViewAttributeSelectorBinding
 
-    private val binding: ViewAttributeSelectorBinding =
-        ViewAttributeSelectorBinding.inflate(LayoutInflater.from(context), this, true)
-            .apply {
-                // 初期表示でセレクトされた状態にする
-                attrTrainee.isSelected = true
+    lateinit var currentTrainingType: TrainingType
+        private set
 
-                attrTrainee.setOnClickListener { switchGender(Attribute.TRAINEE) }
+    init {
+        // bindingの設定
+        binding = ViewAttributeSelectorBinding.inflate(LayoutInflater.from(context), this, true)
 
-                attrTrainer.setOnClickListener { switchGender(Attribute.TRAINER) }
-
-                attrDual.setOnClickListener { switchGender(Attribute.DUAL) }
-            }
-
-    private fun switchGender(attr: Attribute) {
-        selectedAttr = attr
-
-        binding.attrTrainee.run {
-            isSelected = (attr == Attribute.TRAINEE)
-
+        // setOnClickListenerの設定
+        binding.apply {
+            attrTrainee.setOnClickListener { selectedTrainingType(TrainingType.TRAINEE) }
+            attrTrainer.setOnClickListener { selectedTrainingType(TrainingType.TRAINER) }
+            attrDual.setOnClickListener { selectedTrainingType(TrainingType.DUAL) }
         }
-        binding.attrTrainer.isSelected = (attr == Attribute.TRAINER)
-        binding.attrDual.isSelected = (attr == Attribute.DUAL)
+
+        // 初期表示時のTrainingTypeを設定
+        selectedTrainingType(TrainingType.TRAINEE)
     }
 
-    fun getSelectedAttr(): Attribute = selectedAttr
+    private fun selectedTrainingType(trainingType: TrainingType) {
+        currentTrainingType = trainingType
+
+        binding.attrTrainee.isSelected = (trainingType == TrainingType.TRAINEE)
+        binding.attrTrainer.isSelected = (trainingType == TrainingType.TRAINER)
+        binding.attrDual.isSelected = (trainingType == TrainingType.DUAL)
+    }
 }
 
-enum class Attribute(val type : String) {
-    TRAINEE("トレーニー"),
-    TRAINER("トレーナー"),
-    DUAL("兼任")
-}
