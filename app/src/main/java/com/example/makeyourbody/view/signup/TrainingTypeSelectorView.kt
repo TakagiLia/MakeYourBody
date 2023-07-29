@@ -27,7 +27,10 @@ class AttributeSelectorView (context: Context, attributeSet: AttributeSet?) :
     private fun switchGender(attr: Attribute) {
         selectedAttr = attr
 
-        binding.attrTrainee.isSelected = (attr == Attribute.TRAINEE)
+        binding.attrTrainee.run {
+            isSelected = (attr == Attribute.TRAINEE)
+
+        }
         binding.attrTrainer.isSelected = (attr == Attribute.TRAINER)
         binding.attrDual.isSelected = (attr == Attribute.DUAL)
     }
@@ -35,6 +38,8 @@ class AttributeSelectorView (context: Context, attributeSet: AttributeSet?) :
     fun getSelectedAttr(): Attribute = selectedAttr
 }
 
-enum class Attribute {
-    TRAINEE, TRAINER, DUAL
+enum class Attribute(val type : String) {
+    TRAINEE("トレーニー"),
+    TRAINER("トレーナー"),
+    DUAL("兼任")
 }

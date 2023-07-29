@@ -2,7 +2,9 @@
     <string name="app_name">MakeYourBody</string>
 
     <!--サインアップ画面で使用-->
+    <string name="signup_logo">ユーザ登録ページのロゴ</string>
     <string name="signup_name_label">名前</string>
+    <string name="signup_name_hint">名前入力</string>
     <string name="signup_pass_label">パスワード</string>
     <string name="signup_age_label">年齢</string>
     <string name="signup_gender_label">性別</string>
