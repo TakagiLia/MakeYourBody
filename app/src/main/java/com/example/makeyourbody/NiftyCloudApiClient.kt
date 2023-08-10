@@ -6,11 +6,7 @@ import com.example.makeyourbody.data.TrainingMenu
 import com.nifcloud.mbaas.core.NCMBObject
 import com.nifcloud.mbaas.core.NCMBQuery
 import com.nifcloud.mbaas.core.NCMBUser
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.ZonedDateTime
 import java.util.Date
-import java.util.Locale
 
 class NiftyCloudApiClient {
 
@@ -137,6 +133,29 @@ class NiftyCloudApiClient {
             Log.d("--success--", "メニュー登録に成功しました")
         }.onFailure {
             Log.d("--failure--", "メニュー登録に失敗しました" + it.message)
+        }
+    }
+
+    //UserSignUp画面でSave時
+    fun saveUserInformation(name :String,loginName : String,pass : String,age :Int,gender : String,height :Int,
+                            weight :Int,trainingType :String){
+        runCatching {
+            //　Userインスタンスの生成
+            var user = NCMBUser()
+            // ユーザー名・パスワードを設定
+            user.userName = loginName
+            user.password = pass
+            user.put("name",name)
+            user.put("age",age)
+            user.put("gender",gender)
+            user.put("height",height)
+            user.put("weight",weight)
+            user.put("trainingType",trainingType)
+            user.signUp()
+        }.onSuccess {
+            Log.d("--sign up success--", "")
+        }.onFailure {
+            Log.d("--failure--", "ユーザ登録に失敗しました" + it.message)
         }
     }
 }
