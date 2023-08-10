@@ -10,31 +10,33 @@ class GenderSelectorView(context: Context, attributeSet: AttributeSet?) :
     FrameLayout(context, attributeSet) {
 
     private var selectedGender: Gender = Gender.FEMALE
+    lateinit var currentGender: Gender
+        private set
 
-    private val binding: ViewGenderSelectorBinding =
-        ViewGenderSelectorBinding.inflate(LayoutInflater.from(context), this, true)
-            .apply {
+    private val binding: ViewGenderSelectorBinding
+    init {
+        // bindingの設定
+        binding = ViewGenderSelectorBinding.inflate(LayoutInflater.from(context), this, true)
+
+        binding.apply {
                 // 初期表示でセレクトされた状態にする
                 genderFemale.isSelected = true
 
-                genderFemale.setOnClickListener { switchGender(Gender.FEMALE) }
+                genderFemale.setOnClickListener { selectedGender(Gender.FEMALE) }
 
-                genderMale.setOnClickListener { switchGender(Gender.MALE) }
+                genderMale.setOnClickListener { selectedGender(Gender.MALE) }
 
-                genderOther.setOnClickListener { switchGender(Gender.OTHER) }
+                genderOther.setOnClickListener { selectedGender(Gender.OTHER) }
             }
 
-    private fun switchGender(gender: Gender) {
-        selectedGender = gender
+        // 初期表示時の性別
+        selectedGender(Gender.FEMALE)
+    }
+    private fun selectedGender(gender: Gender) {
+        currentGender = gender
 
         binding.genderFemale.isSelected = (gender == Gender.FEMALE)
         binding.genderMale.isSelected = (gender == Gender.MALE)
         binding.genderOther.isSelected = (gender == Gender.OTHER)
     }
-
-    fun getSelectedGender(): Gender = selectedGender
-}
-
-enum class Gender {
-    MALE, FEMALE, OTHER
 }
