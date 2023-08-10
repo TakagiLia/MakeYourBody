@@ -17,6 +17,13 @@
     <string name="signup_dialog_hint">ダイアログで選択</string>
     <string name="signup_btn_label">ユーザ登録ボタン</string>
 
+    <!--サインアップ画面で使用するエラー文-->
+    <string name="signup_name_error">名前を入力してください</string>
+    <string name="signup_length_error">20文字以内で入力してください</string>
+    <string name="signup_pass_length_error">8文字以内で入力してください</string>
+    <string name="signup_login_name_error">ユーザ名を入力してください</string>
+    <string name="signup_pass_error">パスワードを入力してください</string>
+
     <!--性別ラジオボタンで使用-->
     <string name="signup_gender_radio_female">女性</string>
     <string name="signup_gender_radio_male">男性</string>
