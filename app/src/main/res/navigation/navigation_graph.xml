@@ -38,6 +38,9 @@
         android:id="@+id/signup_screen"
         android:name="com.example.makeyourbody.view.signup.SignUpFragment"
         android:label="signup_screen">
+        <action
+            android:id="@+id/action_login_screen"
+            app:destination="@+id/login_screen" />
     </fragment>
 
     <!--トレーニングメニュー作成ページ-->
