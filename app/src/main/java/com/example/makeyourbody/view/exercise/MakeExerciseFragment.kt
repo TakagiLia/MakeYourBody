@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import com.example.makeyourbody.databinding.FragmentMakeExerciseBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -19,6 +20,28 @@ class MakeExerciseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+
+            exerciseNameEdit.addTextChangedListener { nameEditText ->
+                if (nameEditText?.isEmpty() == true|| exerciseContentEdit.text.isEmpty()){
+                    exerciseRegisterBtn.visibility = View.INVISIBLE
+                    exerciseRegisterBtn.isEnabled = false
+                } else {
+                    exerciseRegisterBtn.visibility = View.VISIBLE
+                    exerciseRegisterBtn.isEnabled = true
+                }
+            }
+
+            exerciseContentEdit.addTextChangedListener { contentEditText ->
+                if(exerciseNameEdit.text.isEmpty() || contentEditText?.isEmpty() == true){
+                    exerciseRegisterBtn.visibility = View.INVISIBLE
+                    exerciseRegisterBtn.isEnabled = false
+                }else{
+                    exerciseRegisterBtn.visibility = View.VISIBLE
+                    exerciseRegisterBtn.isEnabled = true
+                }
+            }
+
+
             exerciseRegisterBtn.setOnClickListener {
                 NiftyCloudApiClient().saveExercise(
                     exerciseNameEdit.text.toString(),
