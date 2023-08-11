@@ -55,6 +55,9 @@
         android:id="@+id/make_exercise_screen"
         android:name="com.example.makeyourbody.view.exercise.MakeExerciseFragment"
         android:label="make_exercise_screen">
+        <action
+            android:id="@+id/action_make_exercise_to_top"
+            app:destination="@id/top_screen" />
     </fragment>
 
     <!--スケジュール表示画面-->

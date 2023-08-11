@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.makeyourbody.databinding.FragmentMakeExerciseBinding
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.makeyourbody.NiftyCloudApiClient
+import com.example.makeyourbody.R
 
 class MakeExerciseFragment : Fragment() {
 
@@ -22,6 +24,7 @@ class MakeExerciseFragment : Fragment() {
                     exerciseNameEdit.text.toString(),
                     exerciseContentEdit.text.toString()
                 )
+                Navigation.findNavController(view).navigate(R.id.action_make_exercise_to_top)
             }
 
         }
