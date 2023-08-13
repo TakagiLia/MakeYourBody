@@ -158,4 +158,20 @@ class NiftyCloudApiClient {
             Log.d("--failure--", "ユーザ登録に失敗しました" + it.message)
         }
     }
+
+    //種目マスタの登録
+    fun saveExercise(name :String,content : String){
+
+        runCatching {
+            val obj = NCMBObject("training_items")
+            obj.put("item_name",name)
+            obj.put("item_content",content)
+            obj.save()
+        }.onSuccess {
+            Log.d("--saveExercise success--", "")
+        }.onFailure {
+            Log.d("--failure--", "ユーザ登録に失敗しました" + it.message)
+        }
+
+    }
 }

@@ -64,6 +64,8 @@
     <!--種目マスタ作成画面-->
     <string name="exercise_name">種目名</string>
     <string name="exercise_content">種目内容</string>
+    <string name="exercise_name_hint">種目の名前を入力してください</string>
+    <string name="exercise_content_hint">種目の内容を入力してください</string>
 
     <!--スケジュール確認画面で利用-->
     <string name="schedule_date_label">表示したいセッション日</string>
