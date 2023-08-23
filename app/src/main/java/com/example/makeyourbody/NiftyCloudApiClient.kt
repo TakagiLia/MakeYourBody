@@ -174,4 +174,23 @@ class NiftyCloudApiClient {
         }
 
     }
+
+    fun updateTrainingMenu(updateTrainingMenu :TrainingMenu){
+
+        runCatching {
+
+            // TestClassへのNCMBObjectを設定
+            val obj = NCMBObject("main_menus")
+            // objectIdプロパティを設定
+            obj.setObjectId(updateTrainingMenu.objectId)
+            // オブジェクトに値を設定
+            obj.put("menu_date", updateTrainingMenu.menuDate)
+            obj.put("menu_targetuser", updateTrainingMenu.menuTarget)
+            obj.put("menu_trainer", updateTrainingMenu.menuTrainer)//updateTrainingMenu.menuTrainer != null ?
+            obj.put("menu_content", updateTrainingMenu.menuContent)
+            obj.save()
+        }.onSuccess {
+            Log.d("■updateTrainingMenu","TrainingMenu更新成功")
+        }
+    }
 }
