@@ -60,11 +60,12 @@ class NiftyCloudApiClient {
             query.find()
         }.onSuccess { objList ->
             trainingMenus = objList.map { obj ->
-                val menuDate = obj.getString("menu_date") ?: ""
+                var menuDate = obj.getString("menu_date") ?: ""
                 val menuTarget = obj.getString("menu_targetuser") ?: ""
                 val menuTrainer = obj.getString("menu_trainer") ?: ""
                 val menuContent = obj.getString("menu_content") ?: ""
                 val objectId = obj.getObjectId() ?: ""
+                menuDate = menuDate.substring(24,34).replace("-","/")
                 TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
             }
         }
@@ -184,13 +185,15 @@ class NiftyCloudApiClient {
             // objectIdプロパティを設定
             obj.setObjectId(updateTrainingMenu.objectId)
             // オブジェクトに値を設定
-            obj.put("menu_date", updateTrainingMenu.menuDate)
+            obj.put("menu_date",  CommonFormatter().dateConvert(updateTrainingMenu.menuDate))
             obj.put("menu_targetuser", updateTrainingMenu.menuTarget)
             obj.put("menu_trainer", updateTrainingMenu.menuTrainer)//updateTrainingMenu.menuTrainer != null ?
             obj.put("menu_content", updateTrainingMenu.menuContent)
             obj.save()
         }.onSuccess {
             Log.d("■updateTrainingMenu","TrainingMenu更新成功")
+        }.onFailure {
+            Log.d("--failure--", "メニュー編集時の登録に失敗しました（メニュー詳細画面）" + it.message)
         }
     }
 }
