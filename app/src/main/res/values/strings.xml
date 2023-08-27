@@ -76,6 +76,8 @@
     <!--メニュー詳細画面で利用-->
     <string name="menu_training_label">トレーニングメニュー</string>
     <string name="menu_edit_btn_label">編集する</string>
+    <string name="menu_edit_save_label">保存する</string>
+    <string name="menu_training_btn_label">種目選択</string>
 
     <!--種目詳細画面での利用-->
     <string name="exercise_details_name_label">エクササイズ種目名</string>
