@@ -24,7 +24,7 @@ class TopPageFragment : Fragment() {
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
 
-            val userAttribute = NCMBUser.currentuser?.get("attribute").toString()
+            val userAttribute = NCMBUser.currentuser?.get("trainingType").toString()
 
             //ログインユーザの属性によって表示を変える
             binding.apply {
