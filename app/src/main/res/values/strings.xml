@@ -52,6 +52,7 @@
     <string name="top_schedule_btn_label">スケジュール確認</string>
     <string name="top_menu_btn_label">メニュー作成</string>
     <string name="top_make_exercise_btn_label">種目作成</string>
+    <string name="top_logout_btn_label">ログアウト</string>
 
     <!--メニュー作成画面-->
     <string name="menu_date">セッション日</string>
