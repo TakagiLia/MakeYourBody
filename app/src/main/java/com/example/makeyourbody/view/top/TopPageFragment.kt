@@ -24,11 +24,11 @@ class TopPageFragment : Fragment() {
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
 
-            val userAttribute = NCMBUser.currentuser?.get("attribute").toString()
+            val userType = NCMBUser.currentuser?.get("trainingType").toString()
 
             //ログインユーザの属性によって表示を変える
             binding.apply {
-                when(userAttribute){
+                when(userType){
                     trainer ->{
                         topTrainerLogo.visibility = View.VISIBLE
                         scheduleBtn.visibility = View.VISIBLE
@@ -41,6 +41,9 @@ class TopPageFragment : Fragment() {
                     }
                     dual ->{
                         topDualLogo.visibility = View.VISIBLE
+                        scheduleBtn.visibility = View.VISIBLE
+                        menuBtn.visibility = View.VISIBLE
+                        makeExerciseBtn.visibility = View.VISIBLE
                     }
                 }
 

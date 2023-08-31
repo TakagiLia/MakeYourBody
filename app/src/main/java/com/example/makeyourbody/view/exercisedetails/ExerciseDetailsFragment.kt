@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.makeyourbody.databinding.FragmentExerciseDetailsBinding
+import com.example.makeyourbody.view.signup.TrainingType
+import com.nifcloud.mbaas.core.NCMBUser
 
 
 class ExerciseDetailsFragment : Fragment() {
@@ -17,6 +19,8 @@ class ExerciseDetailsFragment : Fragment() {
 
     private val exerciseDetailsViewModel: ExerciseDetailsViewModel by activityViewModels()
 
+    private val userType = NCMBUser.currentuser?.get("trainingType").toString()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -24,6 +28,14 @@ class ExerciseDetailsFragment : Fragment() {
 
             exerciseDetailsName.setText(exerciseDetailsViewModel.trainingItem.value?.name)
            exerciseDetailsContent.setText(exerciseDetailsViewModel.trainingItem.value?.detail)
+
+            //トレーニーの場合は編集できないようにする
+            if (userType == TrainingType.TRAINEE.type)
+                exerciseDetailsSaveBtn.visibility = View.INVISIBLE
+                exerciseDetailsContentDisEditableBtn.visibility = View.INVISIBLE
+                exerciseDetailsContentEditBtn.visibility = View.INVISIBLE
+                exerciseDetailsNameEditBtn.visibility = View.INVISIBLE
+                exerciseDetailsNameDisEditableBtn.visibility = View.INVISIBLE
 
             exerciseDetailsNameEditBtn.setOnClickListener {
                 Log.d("---ExerciseDetails---", "種目名　編集可能ボタン")
