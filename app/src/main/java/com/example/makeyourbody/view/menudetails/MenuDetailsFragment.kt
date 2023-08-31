@@ -16,7 +16,9 @@ import com.example.makeyourbody.databinding.FragmentMenuDetailsBinding
 import com.example.makeyourbody.view.exercisedetails.ExerciseDetailsViewModel
 import com.example.makeyourbody.view.maketrainingmenu.MakeTrainingViewModel
 import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
+import com.example.makeyourbody.view.signup.TrainingType
 import com.example.makeyourbody.view.traininglist.TrainingListFragment
+import com.nifcloud.mbaas.core.NCMBUser
 
 class MenuDetailsFragment :Fragment() {
 
@@ -25,6 +27,8 @@ class MenuDetailsFragment :Fragment() {
 
     private var editBtnFlg : Boolean = false
     private var menuDetailsItemListBefore = emptyList<TrainingItem>()
+
+    private val userType = NCMBUser.currentuser?.get("trainingType").toString()
 
     //トレーニングメニュー詳細情報保持用
     private val menuDetailsViewModel: MenuDetailsViewModel by activityViewModels()
@@ -60,6 +64,9 @@ class MenuDetailsFragment :Fragment() {
 
             Log.d("--初期トレーニングアイテム--",menuDetailsItemList.toString())
             menuDetailsList.adapter = MenuDetailsListAdapter(menuDetailsItemList,onClickInfoBtn)
+
+            //トレーニーの場合は編集できないようにする
+            if (userType == TrainingType.TRAINEE.type) menuDetailsEditBtn.visibility = View.INVISIBLE
 
             //トレーニングアイテムリストの監視
             makeTrainingViewModel.selectedItems.observe(viewLifecycleOwner){
