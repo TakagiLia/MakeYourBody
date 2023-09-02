@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.makeyourbody.LogoutDialog
 import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.view.signup.TrainingType
@@ -65,8 +66,8 @@ class TopPageFragment : Fragment() {
 
                 //ログアウトボタン
                 topLogoutBtn.setOnClickListener {
-                    NiftyCloudApiClient().logOut()
-                    findNavController().navigate(R.id.action_login_screen)
+                    //ログアウト確認ダイアログを出す
+                    LogoutDialog().show(childFragmentManager, "logout_dialog")
                 }
 
             }
