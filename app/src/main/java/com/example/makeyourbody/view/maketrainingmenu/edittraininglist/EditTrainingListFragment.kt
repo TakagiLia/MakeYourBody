@@ -1,4 +1,4 @@
-package com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist
+package com.example.makeyourbody.view.maketrainingmenu.edittraininglist
 
 import android.os.Bundle
 import android.view.LayoutInflater

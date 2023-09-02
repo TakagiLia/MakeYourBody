@@ -15,7 +15,7 @@ import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentMenuDetailsBinding
 import com.example.makeyourbody.view.exercisedetails.ExerciseDetailsViewModel
 import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
-import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.EditTrainingListAdapter
+import com.example.makeyourbody.view.maketrainingmenu.edittraininglist.EditTrainingListAdapter
 import com.example.makeyourbody.view.signup.TrainingType
 import com.example.makeyourbody.view.traininglist.TrainingListFragment
 import com.nifcloud.mbaas.core.NCMBUser

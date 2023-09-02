@@ -12,7 +12,7 @@ import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.view.dialog.DatePickerFragment
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentMakeTrainingBinding
-import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.EditTrainingListAdapter
+import com.example.makeyourbody.view.maketrainingmenu.edittraininglist.EditTrainingListAdapter
 import com.example.makeyourbody.view.traininglist.TrainingListFragment
 
 
