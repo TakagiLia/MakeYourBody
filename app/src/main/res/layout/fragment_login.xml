@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--ログインページのロゴ-->
     <ImageView
         android:id="@+id/login_logo"
         android:layout_width="160dp"
@@ -27,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <!--「ログインはこちら」メッセージ表示-->
     <TextView
         android:id="@+id/login_msg"
         android:layout_width="wrap_content"
@@ -41,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/login_logo"
         app:layout_constraintBottom_toTopOf="@id/login_name" />
 
+    <!--ログイン時のエラー表示-->
     <TextView
         android:id="@+id/login_error"
         android:layout_width="wrap_content"
@@ -55,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@id/login_msg"
         app:layout_constraintBottom_toTopOf="@id/login_name" />
 
+    <!--ユーザ名入力欄-->
     <EditText
         android:id="@+id/login_name"
         android:layout_width="0dp"
@@ -75,6 +79,7 @@
         app:layout_constraintBottom_toTopOf="@id/login_pass"
         app:layout_constraintVertical_chainStyle="packed"/>
 
+    <!--パスワード入力欄-->
     <EditText
         android:id="@+id/login_pass"
         android:layout_width="0dp"
@@ -94,6 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/login_name"
         app:layout_constraintBottom_toTopOf="@id/login_btn"/>
 
+    <!--ログインボタン-->
     <Button
         android:id="@+id/login_btn"
         android:layout_width="240dp"
@@ -111,6 +117,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_pass" />
 
+    <!--「アカウントをお持ちではない場合」メッセージ表示-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -123,6 +130,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <!--ユーザ作成画面-->
     <Button
         android:id="@+id/signup_btn"
         android:layout_width="240dp"

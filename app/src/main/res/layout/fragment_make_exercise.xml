@@ -14,6 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--種目作成ページのロゴ-->
     <ImageView
         android:id="@+id/menu_logo"
         android:layout_width="0dp"
@@ -26,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-
+    <!--種目名入力欄のラベル-->
     <TextView
         android:id="@+id/exercise_name_label"
         android:layout_width="0dp"
@@ -41,6 +42,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
+    <!--種目名入力欄-->
     <EditText
         android:id="@+id/exercise_name_edit"
         android:layout_width="360dp"
@@ -55,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_name_label"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--種目詳細入力欄のラベル-->
     <TextView
         android:id="@+id/exercise_content_label"
         android:layout_width="0dp"
@@ -68,6 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_name_edit"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--種目詳細入力欄-->
     <EditText
         android:id="@+id/exercise_content_edit"
         android:layout_width="360dp"
@@ -85,6 +89,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/exercise_content_label" />
 
+    <!--保存ボタン（活性）-->
     <Button
         android:id="@+id/exercise_register_btn"
         android:layout_width="wrap_content"
@@ -101,6 +106,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <!--保存ボタン（非活性）-->
     <Button
         android:id="@+id/exercise_inactive_register_btn"
         android:layout_width="wrap_content"

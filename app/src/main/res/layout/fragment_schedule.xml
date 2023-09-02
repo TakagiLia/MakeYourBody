@@ -13,6 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--スケジュール表示ページのロゴ-->
     <ImageView
         android:id="@+id/schedule_logo"
         android:layout_width="0dp"
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!--セッション日入力欄のラベル-->
     <TextView
         android:id="@+id/schedule_date_label"
         android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/schedule_logo" />
 
+    <!--日付選択ダイアログ表示ボタン-->
     <Button
         android:id="@+id/schedule_date_btn"
         android:layout_width="80dp"
@@ -50,6 +53,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/schedule_date_label" />
 
+    <!--セッション日入力欄-->
     <TextView
         android:id="@+id/schedule_date_edit"
         android:layout_width="104dp"
@@ -60,6 +64,7 @@
         app:layout_constraintLeft_toRightOf="@id/schedule_date_btn"
         app:layout_constraintTop_toTopOf="@id/schedule_date_btn" />
 
+    <!--スケジュール検索結果ラベル-->
     <TextView
         android:id="@+id/schedule_list_label"
         android:layout_width="wrap_content"
@@ -72,6 +77,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/schedule_date_edit" />
 
+    <!--スケジュール検索結果表示リスト-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/schedule_list"
         android:layout_width="0dp"

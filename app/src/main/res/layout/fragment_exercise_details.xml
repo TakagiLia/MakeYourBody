@@ -13,6 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--種目詳細ページのロゴ-->
     <ImageView
         android:id="@+id/exercise_details_logo"
         android:layout_width="0dp"
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!--種目名入力欄のラベル-->
     <TextView
         android:id="@+id/exercise_details_name_label"
         android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_logo"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--種目名入力欄の入力可能切り替えアイコンボタン-->
     <ImageButton
         android:id="@+id/exercise_details_name_edit_btn"
         android:layout_width="wrap_content"
@@ -47,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_logo"
         app:layout_constraintLeft_toRightOf="@id/exercise_details_name_label"/>
 
+    <!--種目名入力欄の入力不可能切り替えアイコンボタン-->
     <ImageButton
         android:id="@+id/exercise_details_name_dis_editable_btn"
         android:layout_width="wrap_content"
@@ -58,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_logo"
         app:layout_constraintLeft_toRightOf="@id/exercise_details_name_label"/>
 
-
+    <!--種目名入力欄-->
     <EditText
         android:id="@+id/exercise_details_name"
         android:layout_width="386dp"
@@ -74,6 +78,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_name_label"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--種目入力欄のラベル-->
     <TextView
         android:id="@+id/exercise_details_content_label"
         android:layout_width="wrap_content"
@@ -86,6 +91,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_name"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--種目入力欄の入力可能切り替えアイコンボタン-->
     <ImageButton
         android:id="@+id/exercise_details_content_edit_btn"
         android:layout_width="wrap_content"
@@ -96,6 +102,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_name"
         app:layout_constraintLeft_toRightOf="@id/exercise_details_content_label"/>
 
+    <!--種目名入力欄の入力不可能切り替えアイコンボタン-->
     <ImageButton
         android:id="@+id/exercise_details_content_dis_editable_btn"
         android:layout_width="wrap_content"
@@ -107,6 +114,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_details_name"
         app:layout_constraintLeft_toRightOf="@id/exercise_details_content_label"/>
 
+    <!--種目入力欄-->
     <EditText
         android:id="@+id/exercise_details_content"
         android:layout_width="386dp"
@@ -123,6 +131,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.1"/>
 
+    <!--保存ボタン-->
     <Button
         android:id="@+id/exercise_details_save_btn"
         android:layout_width="wrap_content"

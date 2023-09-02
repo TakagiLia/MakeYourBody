@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--日付テキスト表示-->
         <TextView
             android:id="@+id/training_date"
             android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--対象ユーザテキストラベル-->
         <TextView
             android:id="@+id/training_target_label"
             android:layout_width="wrap_content"
@@ -39,6 +41,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/training_date" />
 
+        <!--対象ユーザテキスト表示-->
         <TextView
             android:id="@+id/training_target"
             android:layout_width="wrap_content"
@@ -48,6 +51,7 @@
             app:layout_constraintLeft_toRightOf="@id/training_target_label"
             app:layout_constraintTop_toBottomOf="@id/training_date" />
 
+        <!--詳細ボタン-->
         <Button
             android:id="@+id/training_details_btn"
             android:layout_width="wrap_content"
