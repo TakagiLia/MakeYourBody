@@ -14,7 +14,7 @@ class LogoutDialog : DialogFragment() {
 
         return activity?.let {
 
-            val builder = AlertDialog.Builder(it)
+            val builder = AlertDialog.Builder(it,R.style.LogoutDialogStyle)
             builder.setMessage(R.string.dialog_title_logout)
                 .setPositiveButton(
                     R.string.dialog_yes

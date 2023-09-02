@@ -13,4 +13,10 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/primary_color</item>
     </style>
+
+    <!--ログアウトダイアログのテーマ-->
+    <style name="LogoutDialogStyle" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/primary_color</item>
+    </style>
+
 </resources>
