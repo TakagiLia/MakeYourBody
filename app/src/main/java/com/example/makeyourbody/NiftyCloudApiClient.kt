@@ -196,4 +196,18 @@ class NiftyCloudApiClient {
             Log.d("--failure--", "メニュー編集時の登録に失敗しました（メニュー詳細画面）" + it.message)
         }
     }
+
+    fun logOut(){
+        runCatching {
+            val user = NCMBUser()
+            // ログアウト
+            user.logout()
+        }.onSuccess {
+            Log.d("--success--","ログアウトに成功しました")
+        }.onFailure {
+            Log.d("--failure--", "ログアウトに失敗しました" + it.message)
+        }
+        }
+
+
 }

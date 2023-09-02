@@ -52,6 +52,7 @@
     <string name="top_schedule_btn_label">スケジュール確認</string>
     <string name="top_menu_btn_label">メニュー作成</string>
     <string name="top_make_exercise_btn_label">種目作成</string>
+    <string name="top_logout_btn_label">ログアウト</string>
 
     <!--メニュー作成画面-->
     <string name="menu_date">セッション日</string>
@@ -83,6 +84,11 @@
     <string name="exercise_details_name_label">エクササイズ種目名</string>
     <string name="exercise_details_content_label">エクササイズ種目詳細</string>
     <string name="exercise_details_content_save">内容を保存</string>
+
+    <!--ダイアログで利用-->
+    <string name="dialog_yes">はい</string>
+    <string name="dialog_no">いいえ</string>
+    <string name="dialog_title_logout">ログアウトしますか？</string>
 
 
 </resources>

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.makeyourbody.LogoutDialog
+import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.view.signup.TrainingType
 import com.example.makeyourbody.databinding.FragmentTopPageBinding
@@ -61,6 +63,13 @@ class TopPageFragment : Fragment() {
                 makeExerciseBtn.setOnClickListener {
                     findNavController().navigate(R.id.action_make_exercise_screen)
                 }
+
+                //ログアウトボタン
+                topLogoutBtn.setOnClickListener {
+                    //ログアウト確認ダイアログを出す
+                    LogoutDialog().show(childFragmentManager, "logout_dialog")
+                }
+
             }
     }
     override fun onCreateView(

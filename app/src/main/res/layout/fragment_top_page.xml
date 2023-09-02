@@ -4,6 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--ログアウトボタン-->
+    <Button
+        android:id="@+id/top_logout_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/invisible_color"
+        android:text="@string/top_logout_btn_label"
+        android:drawableStart="@drawable/logout_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/top_trainer_logo"/>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="160dp"
@@ -52,6 +64,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!--スケジュール確認ボタン-->
     <Button
         android:id="@+id/schedule_btn"
         android:layout_width="240dp"
@@ -69,6 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_trainer_logo" />
 
+    <!--メニュー作成ボタン-->
     <Button
         android:id="@+id/menu_btn"
         android:layout_width="240dp"
@@ -86,6 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/schedule_btn" />
 
+    <!--種目作成ボタン-->
     <Button
         android:id="@+id/make_exercise_btn"
         android:layout_width="240dp"
