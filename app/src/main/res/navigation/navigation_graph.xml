@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_schedule_screen"
             app:destination="@+id/schedule_screen"/>
+        <action
+            android:id="@+id/action_login_screen"
+            app:destination="@id/login_screen"/>
     </fragment>
 
     <!--ユーザ登録ページ-->
