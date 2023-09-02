@@ -63,6 +63,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!--スケジュール確認ボタン-->
     <Button
         android:id="@+id/schedule_btn"
         android:layout_width="240dp"
@@ -80,6 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_trainer_logo" />
 
+    <!--メニュー作成ボタン-->
     <Button
         android:id="@+id/menu_btn"
         android:layout_width="240dp"
@@ -97,6 +99,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/schedule_btn" />
 
+    <!--種目作成ボタン-->
     <Button
         android:id="@+id/make_exercise_btn"
         android:layout_width="240dp"
