@@ -8,19 +8,19 @@ import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
 
-class SelectedTrainingListAdapter(
+class EditTrainingListAdapter(
     private val trainingItems: List<TrainingItem>,
     private val deleteSelectedItems: (TrainingItem) -> Unit,
     private val viewModel: EditTrainingListViewModel
-) : RecyclerView.Adapter<SelectedTrainingViewHolder>(){
+) : RecyclerView.Adapter<EditTrainingListViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectedTrainingViewHolder =
-        SelectedTrainingViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EditTrainingListViewHolder =
+        EditTrainingListViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.fragment_list_selected_training,parent, false)
         )
 
-    override fun onBindViewHolder(holder: SelectedTrainingViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EditTrainingListViewHolder, position: Int) {
         Log.d("---SelectedTrainingListAdapter---","Selectedリストの設定")
         val trainingItem = trainingItems[position]
         holder.itemName.text = trainingItem.name

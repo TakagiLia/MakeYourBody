@@ -15,7 +15,7 @@ import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentMenuDetailsBinding
 import com.example.makeyourbody.view.exercisedetails.ExerciseDetailsViewModel
 import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
-import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
+import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.EditTrainingListAdapter
 import com.example.makeyourbody.view.signup.TrainingType
 import com.example.makeyourbody.view.traininglist.TrainingListFragment
 import com.nifcloud.mbaas.core.NCMBUser
@@ -75,7 +75,7 @@ class MenuDetailsFragment :Fragment() {
                 if(editBtnFlg){
                     Log.d("--監視editBtnFlg--","①")
                     menuDetailsList.adapter =
-                        SelectedTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
+                        EditTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
                 }else{
                     Log.d("--監視editBtnFlg--","②")
                     menuDetailsList.adapter =
@@ -101,7 +101,7 @@ class MenuDetailsFragment :Fragment() {
                     menuDetailsEditBtn.setText(R.string.menu_save_btn_label)
                     menuDetailsItemListBefore = menuDetailsItemList
                     menuDetailsList.adapter =
-                        SelectedTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
+                        EditTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
                 }else{
                     Log.d("--editBtnFlg--","②")
                     //ボタンやトレーニングボタンを非表示にする

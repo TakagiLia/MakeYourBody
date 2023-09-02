@@ -12,7 +12,7 @@ import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.view.dialog.DatePickerFragment
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentMakeTrainingBinding
-import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
+import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.EditTrainingListAdapter
 import com.example.makeyourbody.view.traininglist.TrainingListFragment
 
 
@@ -55,7 +55,7 @@ class MakeTrainingFragment : Fragment() {
         editTrainingListViewModel.selectedItems.observe(viewLifecycleOwner) {
             Log.d("---MakeTrainingFragment---", "makeTrainingViewModel監視")
             binding.menuSelectedItem.adapter = it?.let {
-                SelectedTrainingListAdapter(it.toList(), onItemClick, editTrainingListViewModel)
+                EditTrainingListAdapter(it.toList(), onItemClick, editTrainingListViewModel)
             }
         }
 
