@@ -85,5 +85,10 @@
     <string name="exercise_details_content_label">エクササイズ種目詳細</string>
     <string name="exercise_details_content_save">内容を保存</string>
 
+    <!--ダイアログで利用-->
+    <string name="dialog_yes">はい</string>
+    <string name="dialog_no">いいえ</string>
+    <string name="dialog_title_logout">ログアウトしますか？</string>
+
 
 </resources>
