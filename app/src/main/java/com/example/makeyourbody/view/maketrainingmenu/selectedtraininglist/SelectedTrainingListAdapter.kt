@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
-import com.example.makeyourbody.view.maketrainingmenu.MakeTrainingViewModel
+import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
 
 class SelectedTrainingListAdapter(
     private val trainingItems: List<TrainingItem>,
     private val deleteSelectedItems: (TrainingItem) -> Unit,
-    private val viewModel: MakeTrainingViewModel
+    private val viewModel: EditTrainingListViewModel
 ) : RecyclerView.Adapter<SelectedTrainingViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectedTrainingViewHolder =

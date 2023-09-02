@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.makeyourbody.data.TrainingItem
 
-class MakeTrainingViewModel : ViewModel()  {
+class EditTrainingListViewModel : ViewModel()  {
 
     //トレーニング作成画面　種目マスタの値
     private val _selectedItems = MutableLiveData<Set<TrainingItem>>()

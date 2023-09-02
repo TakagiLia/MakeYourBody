@@ -15,7 +15,7 @@ import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.databinding.FragmentTrainingListBinding
-import com.example.makeyourbody.view.maketrainingmenu.MakeTrainingViewModel
+import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -26,13 +26,13 @@ class TrainingListFragment : DialogFragment() {
 
     private var trainingItems: List<TrainingItem> = emptyList()
 
-    private val makeTrainingViewModel: MakeTrainingViewModel by activityViewModels()
+    private val editTrainingListViewModel: EditTrainingListViewModel by activityViewModels()
 
     //トレーニングアイテム詳細ページ表示用
     private val trainingItemViewModel: TrainingItemViewModel by activityViewModels()
 
     private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
-        makeTrainingViewModel.setSelectedItem(trainingItem)
+        editTrainingListViewModel.setSelectedItem(trainingItem)
         trainingItemViewModel.setItem(trainingItem)
         dismiss()
     }

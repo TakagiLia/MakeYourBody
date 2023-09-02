@@ -21,10 +21,10 @@ class MakeTrainingFragment : Fragment() {
     private var _binding: FragmentMakeTrainingBinding? = null
     private val binding get() = _binding!!
 
-    private val makeTrainingViewModel: MakeTrainingViewModel by activityViewModels()
+    private val editTrainingListViewModel: EditTrainingListViewModel by activityViewModels()
 
     private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
-        makeTrainingViewModel.deleteSelectedItems(trainingItem)
+        editTrainingListViewModel.deleteSelectedItems(trainingItem)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,15 +47,15 @@ class MakeTrainingFragment : Fragment() {
         //トレーニング種目選択リストダイアログ表示
         binding.menuItemSelectBtn.setOnClickListener {
             Log.d("---MakeTrainingFragment---", "種目選択ボタン押下")
-            makeTrainingViewModel.setMenuDate(binding.menuDateEdit.text.toString())
-            makeTrainingViewModel.setTargetUser(binding.menuTargetEdit.text.toString())
+            editTrainingListViewModel.setMenuDate(binding.menuDateEdit.text.toString())
+            editTrainingListViewModel.setTargetUser(binding.menuTargetEdit.text.toString())
             TrainingListFragment().show(childFragmentManager, "fragment_list_training_item")
         }
 
-        makeTrainingViewModel.selectedItems.observe(viewLifecycleOwner) {
+        editTrainingListViewModel.selectedItems.observe(viewLifecycleOwner) {
             Log.d("---MakeTrainingFragment---", "makeTrainingViewModel監視")
             binding.menuSelectedItem.adapter = it?.let {
-                SelectedTrainingListAdapter(it.toList(), onItemClick, makeTrainingViewModel)
+                SelectedTrainingListAdapter(it.toList(), onItemClick, editTrainingListViewModel)
             }
         }
 
@@ -66,7 +66,7 @@ class MakeTrainingFragment : Fragment() {
             val date = CommonFormatter().dateConvert(binding.menuDateEdit.text.toString())
 
             NiftyCloudApiClient().saveMenuObject(
-                makeTrainingViewModel.selectedItems.value.toString(),
+                editTrainingListViewModel.selectedItems.value.toString(),
                 date, binding.menuTargetEdit.text.toString()
             )
         }
