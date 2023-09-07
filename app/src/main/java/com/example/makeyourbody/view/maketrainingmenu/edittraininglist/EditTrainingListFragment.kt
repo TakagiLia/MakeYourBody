@@ -1,4 +1,4 @@
-package com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist
+package com.example.makeyourbody.view.maketrainingmenu.edittraininglist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.makeyourbody.databinding.FragmentListSelectedTrainingBinding
 
-class SelectedTrainingListFragment :Fragment(){
+class EditTrainingListFragment :Fragment(){
 
     private var _binding: FragmentListSelectedTrainingBinding? = null
     private val binding get() = _binding!!

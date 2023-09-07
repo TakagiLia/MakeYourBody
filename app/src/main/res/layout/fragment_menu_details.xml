@@ -13,6 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--メニュー詳細ページのロゴ-->
     <ImageView
         android:id="@+id/menu_details_logo"
         android:layout_width="0dp"
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"/>
 
+    <!--セッション日入力欄のラベル-->
     <TextView
         android:id="@+id/menu_details_date_label"
         android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/menu_details_logo"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--セッション日入力欄-->
     <EditText
         android:id="@+id/menu_details_date"
         android:layout_width="386dp"
@@ -51,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/menu_details_date_label"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--対象ユーザ入力欄のラベル-->
     <TextView
         android:id="@+id/menu_details_target_label"
         android:layout_width="wrap_content"
@@ -63,6 +67,7 @@
         app:layout_constraintTop_toBottomOf="@id/menu_details_date"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--対象ユーザ入力欄-->
     <EditText
         android:id="@+id/menu_details_target"
         android:layout_width="386dp"
@@ -78,6 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/menu_details_target_label"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--トレーニング内容選択欄のラベル-->
     <TextView
         android:id="@+id/menu_details_item_label"
         android:layout_width="wrap_content"
@@ -91,6 +97,7 @@
         app:layout_constraintRight_toLeftOf="@id/menu_details_select_btn"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <!--種目選択ダイアログのボタン-->
     <Button
         android:visibility="invisible"
         android:enabled="false"
@@ -106,6 +113,7 @@
         app:layout_constraintLeft_toRightOf="@id/menu_details_item_label"
         app:layout_constraintBottom_toTopOf="@id/menu_details_list"/>
 
+    <!--選択されているトレーニングを表示する欄のラベル-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menu_details_list"
         android:layout_width="0dp"
@@ -119,6 +127,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.1"/>
 
+    <!--メニュー編集保存切り替えボタン-->
     <Button
         android:id="@+id/menu_details_edit_btn"
         android:layout_width="wrap_content"

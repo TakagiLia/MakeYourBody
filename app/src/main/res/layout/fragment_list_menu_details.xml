@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--リスト１行分のテキスト-->
         <TextView
             android:id="@+id/menu_details_list_name"
             android:layout_width="wrap_content"
@@ -23,6 +24,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--リストアイコン（詳細情報）-->
         <ImageButton
             android:id="@+id/menu_details_list_btn"
             android:layout_width="wrap_content"

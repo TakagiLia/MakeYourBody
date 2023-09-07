@@ -40,6 +40,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--名前入力欄ラベル-->
             <TextView
                 android:id="@+id/signup_name_label"
                 android:layout_width="0dp"
@@ -54,6 +55,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/signup_logo" />
 
+            <!--名前入力欄-->
             <EditText
                 android:id="@+id/signup_name_edit"
                 android:layout_width="0dp"
@@ -74,6 +76,7 @@
                 app:layout_constraintStart_toEndOf="@id/signup_name_label"
                 app:layout_constraintTop_toTopOf="@id/signup_name_label" />
 
+            <!--エラー文「名前を入力してください」-->
             <TextView
                 android:id="@+id/signup_name_error"
                 android:layout_width="288dp"
@@ -89,6 +92,7 @@
                 app:layout_constraintBottom_toTopOf="@id/signup_login_name_edit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!--エラー文「20文字以内で入力してください」-->
             <TextView
                 android:id="@+id/signup_name_length_error"
                 android:layout_width="288dp"
@@ -104,6 +108,7 @@
                 app:layout_constraintBottom_toTopOf="@id/signup_login_name_edit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!--ユーザ名入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_login_name_label"
                 android:layout_width="0dp"
@@ -118,6 +123,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_name_label" />
 
+            <!--ユーザ名入力欄-->
             <EditText
                 android:id="@+id/signup_login_name_edit"
                 android:layout_width="0dp"
@@ -138,6 +144,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_name_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_login_name_label" />
 
+            <!--エラー文「ユーザ名を入力してください」-->
             <TextView
                 android:id="@+id/signup_login_name_error"
                 android:layout_width="288dp"
@@ -153,6 +160,7 @@
                 app:layout_constraintBottom_toTopOf="@id/signup_pass_edit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!--エラー文「20文字以内で入力してください」-->
             <TextView
                 android:id="@+id/signup_login_name_length_error"
                 android:layout_width="288dp"
@@ -168,6 +176,7 @@
                 app:layout_constraintBottom_toTopOf="@id/signup_pass_edit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!--パスワード入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_pass_label"
                 android:layout_width="0dp"
@@ -182,6 +191,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_login_name_label" />
 
+            <!--ユーザ名入力欄-->
             <EditText
                 android:id="@+id/signup_pass_edit"
                 android:layout_width="0dp"
@@ -201,6 +211,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_login_name_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_pass_label" />
 
+            <!--エラー文「パスワードを入力してください」-->
             <TextView
                 android:id="@+id/signup_pass_error"
                 android:layout_width="288dp"
@@ -216,6 +227,7 @@
                 app:layout_constraintBottom_toTopOf="@id/signup_age_edit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!--エラー文「8文字以内で入力してください」-->
             <TextView
                 android:id="@+id/signup_pass_length_error"
                 android:layout_width="288dp"
@@ -231,6 +243,7 @@
                 app:layout_constraintBottom_toTopOf="@id/signup_age_edit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <!--パスワード非表示アイコンボタン-->
             <ImageButton
                 android:id="@+id/signup_pass_btn"
                 android:layout_width="wrap_content"
@@ -242,6 +255,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_pass_edit" />
 
+            <!--年齢入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_age_label"
                 android:layout_width="0dp"
@@ -256,6 +270,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_pass_label" />
 
+            <!--年齢入力内容表示欄-->
             <TextView
                 android:id="@+id/signup_age_edit"
                 android:layout_width="0dp"
@@ -274,6 +289,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_pass_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_age_label" />
 
+            <!--性別入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_gender_label"
                 android:layout_width="0dp"
@@ -288,6 +304,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_age_label" />
 
+            <!--性別選択欄-->
             <com.example.makeyourbody.view.signup.GenderSelectorView
                 android:id="@+id/signup_gender_edit"
                 android:layout_width="288dp"
@@ -298,6 +315,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_age_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_gender_label" />
 
+            <!--身長入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_height_label"
                 android:layout_width="0dp"
@@ -312,6 +330,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_gender_label" />
 
+            <!--身長入力内容表示欄-->
             <TextView
                 android:id="@+id/signup_height_edit"
                 android:layout_width="0dp"
@@ -330,6 +349,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_age_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_height_label" />
 
+            <!--体重入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_weight_label"
                 android:layout_width="0dp"
@@ -344,6 +364,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_height_label" />
 
+            <!--体重入力内容表示欄-->
             <TextView
                 android:id="@+id/signup_weight_edit"
                 android:layout_width="0dp"
@@ -362,6 +383,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_height_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
 
+            <!--トレーニングタイプ入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_attr_label"
                 android:layout_width="0dp"
@@ -376,6 +398,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
 
+            <!--トレーニングタイプ入力内容表示欄-->
             <com.example.makeyourbody.view.signup.TrainingTypeSelectorView
                 android:id="@+id/signup_attr_edit"
                 android:layout_width="0dp"
@@ -387,6 +410,7 @@
                 app:layout_constraintTop_toBottomOf="@id/signup_weight_edit"
                 app:layout_constraintTop_toTopOf="@id/signup_attr_label" />
 
+            <!--保存ボタン（非活性）-->
             <Button
                 android:id="@+id/signup_userBtn_Inactive"
                 android:layout_width="240dp"
@@ -394,7 +418,7 @@
                 android:layout_marginTop="48dp"
                 android:background="@drawable/button_custom"
                 android:backgroundTint="@color/pale_red_color"
-                android:text="非活性"
+                android:text="@string/signup_btn_label"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -404,6 +428,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/signup_attr_edit" />
 
+            <!--保存ボタン（活性）-->
             <Button
                 android:id="@+id/signup_userBtn"
                 android:layout_width="240dp"

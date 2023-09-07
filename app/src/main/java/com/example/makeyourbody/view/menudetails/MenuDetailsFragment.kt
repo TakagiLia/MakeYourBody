@@ -14,8 +14,8 @@ import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentMenuDetailsBinding
 import com.example.makeyourbody.view.exercisedetails.ExerciseDetailsViewModel
-import com.example.makeyourbody.view.maketrainingmenu.MakeTrainingViewModel
-import com.example.makeyourbody.view.maketrainingmenu.selectedtraininglist.SelectedTrainingListAdapter
+import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
+import com.example.makeyourbody.view.maketrainingmenu.edittraininglist.EditTrainingListAdapter
 import com.example.makeyourbody.view.signup.TrainingType
 import com.example.makeyourbody.view.traininglist.TrainingListFragment
 import com.nifcloud.mbaas.core.NCMBUser
@@ -37,7 +37,7 @@ class MenuDetailsFragment :Fragment() {
     private val exerciseDetailsViewModel: ExerciseDetailsViewModel by activityViewModels()
 
     //トレーニングアイテム編集リスト用
-    private val makeTrainingViewModel: MakeTrainingViewModel by activityViewModels()
+    private val editTrainingListViewModel: EditTrainingListViewModel by activityViewModels()
 
     //リストアイテム詳細ページ遷移
     private val onClickInfoBtn: (TrainingItem)-> Unit = { trainingItem ->
@@ -48,7 +48,7 @@ class MenuDetailsFragment :Fragment() {
 
     //リストアイテム削除処理
     private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
-        makeTrainingViewModel.deleteSelectedItems(trainingItem)
+        editTrainingListViewModel.deleteSelectedItems(trainingItem)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class MenuDetailsFragment :Fragment() {
             menuDetailsDate.setText(menuDetailsViewModel.menu.value?.menuDate)
             menuDetailsTarget.setText(menuDetailsViewModel.menu.value?.menuTarget)
             var menuDetailsItemList = NiftyCloudApiClient().getTrainingItemBindingMenu(fixingList) ?: emptyList()
-            makeTrainingViewModel.setSelectedItems(menuDetailsItemList)
+            editTrainingListViewModel.setSelectedItems(menuDetailsItemList)
 
             Log.d("--初期トレーニングアイテム--",menuDetailsItemList.toString())
             menuDetailsList.adapter = MenuDetailsListAdapter(menuDetailsItemList,onClickInfoBtn)
@@ -69,13 +69,13 @@ class MenuDetailsFragment :Fragment() {
             if (userType == TrainingType.TRAINEE.type) menuDetailsEditBtn.visibility = View.INVISIBLE
 
             //トレーニングアイテムリストの監視
-            makeTrainingViewModel.selectedItems.observe(viewLifecycleOwner){
+            editTrainingListViewModel.selectedItems.observe(viewLifecycleOwner){
                 Log.d("--トレーニングアイテムリスト監視--","")
-                menuDetailsItemList = makeTrainingViewModel.selectedItems.value?.toList() ?: emptyList()
+                menuDetailsItemList = editTrainingListViewModel.selectedItems.value?.toList() ?: emptyList()
                 if(editBtnFlg){
                     Log.d("--監視editBtnFlg--","①")
                     menuDetailsList.adapter =
-                        SelectedTrainingListAdapter(menuDetailsItemList,onItemClick,makeTrainingViewModel)
+                        EditTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
                 }else{
                     Log.d("--監視editBtnFlg--","②")
                     menuDetailsList.adapter =
@@ -101,7 +101,7 @@ class MenuDetailsFragment :Fragment() {
                     menuDetailsEditBtn.setText(R.string.menu_save_btn_label)
                     menuDetailsItemListBefore = menuDetailsItemList
                     menuDetailsList.adapter =
-                        SelectedTrainingListAdapter(menuDetailsItemList,onItemClick,makeTrainingViewModel)
+                        EditTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
                 }else{
                     Log.d("--editBtnFlg--","②")
                     //ボタンやトレーニングボタンを非表示にする
@@ -109,13 +109,13 @@ class MenuDetailsFragment :Fragment() {
                     menuDetailsSelectBtn.visibility = View.INVISIBLE
 
                     //編集されたか確認　　ここのIf文や保存時の処理の書き方よくなさそうなのでそのうち改修
-                    if(makeTrainingViewModel.menuDate.value != menuDetailsDate.text.toString() ||
-                        makeTrainingViewModel.menuTargetUser.value != menuDetailsTarget.text.toString() ||
-                        makeTrainingViewModel.selectedItems.value?.size != menuDetailsItemListBefore.size){
+                    if(editTrainingListViewModel.menuDate.value != menuDetailsDate.text.toString() ||
+                        editTrainingListViewModel.menuTargetUser.value != menuDetailsTarget.text.toString() ||
+                        editTrainingListViewModel.selectedItems.value?.size != menuDetailsItemListBefore.size){
                         Log.d("--Edit Complete--","Saveに走る")
 
                         //保存のため再度表示されているリストの要素データを集める
-                        val trainingItemContent = makeTrainingViewModel.selectedItems.value?.map { selectedItems ->
+                        val trainingItemContent = editTrainingListViewModel.selectedItems.value?.map { selectedItems ->
                             selectedItems.name
                         }
                         //実際の保存処理
@@ -128,9 +128,9 @@ class MenuDetailsFragment :Fragment() {
                         //保持データ再セット
                         Log.d("--再セット時--",menuDetailsItemList.toString())
                         menuDetailsItemListBefore = menuDetailsItemList
-                        makeTrainingViewModel.setMenuDate(menuDetailsDate.text.toString())
-                        makeTrainingViewModel.setTargetUser(menuDetailsTarget.text.toString())
-                        menuDetailsItemList = makeTrainingViewModel.selectedItems.value?.toList()?: emptyList()
+                        editTrainingListViewModel.setMenuDate(menuDetailsDate.text.toString())
+                        editTrainingListViewModel.setTargetUser(menuDetailsTarget.text.toString())
+                        menuDetailsItemList = editTrainingListViewModel.selectedItems.value?.toList()?: emptyList()
                         menuDetailsList.adapter =
                             MenuDetailsListAdapter(menuDetailsItemList, onClickInfoBtn)
                     }
