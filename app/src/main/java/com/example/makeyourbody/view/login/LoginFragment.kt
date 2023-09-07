@@ -1,5 +1,7 @@
 package com.example.makeyourbody.view.login
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +12,17 @@ import androidx.navigation.Navigation
 import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.R
 import com.example.makeyourbody.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
 
     private val binding get() = _binding!!
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-
-            loginError.isInvisible = true
 
             //ログイン画面からトップページに遷移
             loginBtn.setOnClickListener { view ->
@@ -34,15 +36,24 @@ class LoginFragment : Fragment() {
                 if (result) {
                     Navigation.findNavController(view).navigate(R.id.action_top_screen)
                 } else {
-                    //エラーメッセージ画面に出力
-                    loginError.isInvisible = false
-                    loginError.text = getString(R.string.login_error_msg)
+                    //エラーメッセージ画面に出力(スナックバー)
+                    Snackbar.make(
+                        view,
+                        getString(R.string.login_error_msg),
+                        Snackbar.LENGTH_INDEFINITE
+                    ).apply {
+                        setTextColor(Color.BLACK)
+                        setBackgroundTint(Color.parseColor("#EEE8AA"))
+                        setAction("OK") {dismiss()}
+                        setActionTextColor(Color.BLACK)
+                        show()
+                    }
                 }
-            }
 
-            //ユーザ登録画面に遷移
-            signupBtn.setOnClickListener { view ->
-                Navigation.findNavController(view).navigate(R.id.action_signup_screen)
+                //ユーザ登録画面に遷移
+                signupBtn.setOnClickListener { view ->
+                    Navigation.findNavController(view).navigate(R.id.action_signup_screen)
+                }
             }
         }
     }
