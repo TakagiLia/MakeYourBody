@@ -52,4 +52,8 @@ class EditTrainingListViewModel : ViewModel()  {
             .toSet()
     }
 
+    fun clearSelectedItems(){
+        _selectedItems.value = emptySet()
+    }
+
 }

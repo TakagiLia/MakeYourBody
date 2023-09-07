@@ -86,6 +86,7 @@ class MakeTrainingFragment : Fragment() {
         Log.d("---TMakeTrainingFragment---", "onDestroyView()")
         super.onDestroyView()
         _binding = null
+        editTrainingListViewModel.clearSelectedItems()
     }
 
 }
