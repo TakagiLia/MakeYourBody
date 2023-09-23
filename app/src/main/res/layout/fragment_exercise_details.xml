@@ -47,6 +47,7 @@
         android:src="@drawable/editable_icon24"
         android:background="@color/white"
         android:layout_marginTop="16dp"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@id/exercise_details_logo"
         app:layout_constraintLeft_toRightOf="@id/exercise_details_name_label"/>
 
@@ -99,6 +100,7 @@
         android:src="@drawable/editable_icon24"
         android:background="@color/white"
         android:layout_marginTop="16dp"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@id/exercise_details_name"
         app:layout_constraintLeft_toRightOf="@id/exercise_details_content_label"/>
 
