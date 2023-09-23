@@ -165,6 +165,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="16sp"
+        android:visibility="invisible"
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

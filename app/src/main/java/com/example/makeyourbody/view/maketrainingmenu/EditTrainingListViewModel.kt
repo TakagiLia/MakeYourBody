@@ -52,4 +52,17 @@ class EditTrainingListViewModel : ViewModel()  {
             .toSet()
     }
 
+    fun clearSelectedItems(){
+        _selectedItems.value = emptySet()
+    }
+    fun inputCheckTargetUser(): Boolean {
+        return _menuTargetUser.value.isNullOrEmpty()
+    }
+    fun inputCheckSelectedItems(): Boolean {
+        return _selectedItems.value.isNullOrEmpty()
+    }
+    fun inputCheckDate(): Boolean {
+        return _menuDate.value.isNullOrEmpty()
+    }
+
 }

@@ -156,6 +156,7 @@ class MenuDetailsFragment :Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        editTrainingListViewModel.clearSelectedItems()
     }
 
 }
