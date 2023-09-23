@@ -30,12 +30,13 @@ class ExerciseDetailsFragment : Fragment() {
            exerciseDetailsContent.setText(exerciseDetailsViewModel.trainingItem.value?.detail)
 
             //トレーニーの場合は編集できないようにする
-            if (userType == TrainingType.TRAINEE.type)
+            if (userType == TrainingType.TRAINEE.type) {
                 exerciseDetailsSaveBtn.visibility = View.INVISIBLE
                 exerciseDetailsContentDisEditableBtn.visibility = View.INVISIBLE
                 exerciseDetailsContentEditBtn.visibility = View.INVISIBLE
                 exerciseDetailsNameEditBtn.visibility = View.INVISIBLE
                 exerciseDetailsNameDisEditableBtn.visibility = View.INVISIBLE
+            }
 
             exerciseDetailsNameEditBtn.setOnClickListener {
                 Log.d("---ExerciseDetails---", "種目名　編集可能ボタン")
