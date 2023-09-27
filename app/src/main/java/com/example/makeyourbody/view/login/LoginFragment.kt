@@ -1,12 +1,10 @@
 package com.example.makeyourbody.view.login
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.makeyourbody.NiftyCloudApiClient
@@ -18,14 +16,13 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
 
     private val binding get() = _binding!!
-    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
 
             //ログイン画面からトップページに遷移
-            loginBtn.setOnClickListener { view ->
+            loginButton.setOnClickListener { view ->
                 var loginName = loginName.text.toString()
                 var loginPass = loginPass.text.toString()
 
@@ -49,11 +46,10 @@ class LoginFragment : Fragment() {
                         show()
                     }
                 }
-
-                //ユーザ登録画面に遷移
-                signupBtn.setOnClickListener { view ->
-                    Navigation.findNavController(view).navigate(R.id.action_signup_screen)
-                }
+            }
+            //ユーザ登録画面に遷移
+            signupButton.setOnClickListener { view ->
+                Navigation.findNavController(view).navigate(R.id.action_signup_screen)
             }
         }
     }
