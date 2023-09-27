@@ -82,11 +82,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_name"
-        app:layout_constraintBottom_toTopOf="@id/login_btn"/>
+        app:layout_constraintBottom_toTopOf="@id/login_button"/>
 
     <!--ログインボタン-->
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/login_button"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:text="@string/login_btn_label"
@@ -111,13 +111,13 @@
         android:textStyle="bold"
         android:text="@string/login_signup_msg"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/signup_btn"
+        app:layout_constraintBottom_toTopOf="@id/signup_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <!--ユーザ作成画面-->
     <Button
-        android:id="@+id/signup_btn"
+        android:id="@+id/signup_button"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:text="@string/login_signup_btn_label"
