@@ -30,12 +30,13 @@ class ExerciseDetailsFragment : Fragment() {
            exerciseDetailsContent.setText(exerciseDetailsViewModel.trainingItem.value?.detail)
 
             //トレーニーの場合は編集できないようにする
-            if (userType == TrainingType.TRAINEE.type)
+            if (userType == TrainingType.TRAINEE.type) {
                 exerciseDetailsSaveBtn.visibility = View.INVISIBLE
                 exerciseDetailsContentDisEditableBtn.visibility = View.INVISIBLE
                 exerciseDetailsContentEditBtn.visibility = View.INVISIBLE
                 exerciseDetailsNameEditBtn.visibility = View.INVISIBLE
                 exerciseDetailsNameDisEditableBtn.visibility = View.INVISIBLE
+            }
 
             exerciseDetailsNameEditBtn.setOnClickListener {
                 Log.d("---ExerciseDetails---", "種目名　編集可能ボタン")
@@ -43,6 +44,7 @@ class ExerciseDetailsFragment : Fragment() {
                 exerciseDetailsName.isEnabled = !exerciseDetailsName.isEnabled
                 exerciseDetailsNameEditBtn.visibility = View.INVISIBLE
                 exerciseDetailsNameDisEditableBtn.visibility = View.VISIBLE
+                exerciseDetailsSaveBtn.visibility = View.VISIBLE
             }
 
             exerciseDetailsNameDisEditableBtn.setOnClickListener{
@@ -50,6 +52,7 @@ class ExerciseDetailsFragment : Fragment() {
                 exerciseDetailsName.isEnabled = !exerciseDetailsName.isEnabled
                 exerciseDetailsNameDisEditableBtn.visibility = View.INVISIBLE
                 exerciseDetailsNameEditBtn.visibility = View.VISIBLE
+                exerciseDetailsSaveBtn.visibility = View.INVISIBLE
             }
 
             exerciseDetailsContentEditBtn.setOnClickListener{
@@ -57,6 +60,7 @@ class ExerciseDetailsFragment : Fragment() {
                 exerciseDetailsContent.isEnabled = !exerciseDetailsContent.isEnabled
                 exerciseDetailsContentEditBtn.visibility = View.INVISIBLE
                 exerciseDetailsContentDisEditableBtn.visibility = View.VISIBLE
+                exerciseDetailsSaveBtn.visibility = View.VISIBLE
             }
 
             exerciseDetailsContentDisEditableBtn.setOnClickListener{
@@ -64,6 +68,7 @@ class ExerciseDetailsFragment : Fragment() {
                 exerciseDetailsContent.isEnabled = !exerciseDetailsContent.isEnabled
                 exerciseDetailsContentEditBtn.visibility = View.VISIBLE
                 exerciseDetailsContentDisEditableBtn.visibility = View.INVISIBLE
+                exerciseDetailsSaveBtn.visibility = View.INVISIBLE
             }
 
         }
