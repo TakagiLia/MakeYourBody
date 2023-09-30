@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.makeyourbody.NiftyCloudApiClient
 import com.example.makeyourbody.databinding.FragmentExerciseDetailsBinding
 import com.example.makeyourbody.view.signup.TrainingType
 import com.nifcloud.mbaas.core.NCMBUser
@@ -26,8 +27,12 @@ class ExerciseDetailsFragment : Fragment() {
 
         binding.apply {
 
-            exerciseDetailsName.setText(exerciseDetailsViewModel.trainingItem.value?.name)
-           exerciseDetailsContent.setText(exerciseDetailsViewModel.trainingItem.value?.detail)
+            //最新の種目名と種目詳細を取得
+            val getItem =
+                NiftyCloudApiClient().getTrainingItem(exerciseDetailsViewModel.trainingItem.value?.name.toString())
+
+            exerciseDetailsName.setText(getItem.name)
+            exerciseDetailsContent.setText(getItem.detail)
 
             //トレーニーの場合は編集できないようにする
             if (userType == TrainingType.TRAINEE.type) {
@@ -71,6 +76,28 @@ class ExerciseDetailsFragment : Fragment() {
                 exerciseDetailsSaveBtn.visibility = View.INVISIBLE
             }
 
+            //内容保存ボタン押下後
+            exerciseDetailsSaveBtn.setOnClickListener {
+                NiftyCloudApiClient().saveExercise(
+                    exerciseDetailsName.text.toString(),
+                    exerciseDetailsContent.text.toString(),
+                    getItem.objectId
+                )
+                //ボタンや編集のステータスを元に戻す
+                if(exerciseDetailsContentDisEditableBtn.visibility == View.VISIBLE){
+                    exerciseDetailsContent.isEnabled = !exerciseDetailsContent.isEnabled
+                }
+
+                if(exerciseDetailsNameDisEditableBtn.visibility == View.VISIBLE){
+                    exerciseDetailsName.isEnabled = !exerciseDetailsName.isEnabled
+                }
+
+                exerciseDetailsContentDisEditableBtn.visibility = View.INVISIBLE
+                exerciseDetailsNameDisEditableBtn.visibility = View.INVISIBLE
+                exerciseDetailsContentEditBtn.visibility = View.VISIBLE
+                exerciseDetailsNameEditBtn.visibility = View.VISIBLE
+                exerciseDetailsSaveBtn.visibility = View.INVISIBLE
+            }
         }
     }
 
