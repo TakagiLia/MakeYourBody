@@ -88,6 +88,7 @@ class NiftyCloudApiClient {
                 val menuTrainer = obj.getString("menu_trainer") ?: ""
                 val menuContent = obj.getString("menu_content") ?: ""
                 val objectId = obj.getObjectId() ?: ""
+                //val splitMenuContent = menuContent.split("TrainingItem(","),")
                 TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
             }
         }
@@ -122,11 +123,17 @@ class NiftyCloudApiClient {
     }
 
     //メニュー登録画面でSave時
-    fun saveMenuObject(selectedItems: String, menuDateEdit: Date, menuTargetEdit: String) {
+    fun saveMenuObject(selectedItems:Set<TrainingItem>?, menuDateEdit: Date, menuTargetEdit: String) {
         runCatching {
             var ncmbObj = NCMBObject("main_menus")
 
-            ncmbObj.put("menu_content", selectedItems)
+            var itemNameList = mutableListOf<String>()
+            selectedItems?.toList()?.forEach { item ->
+                itemNameList.add(item.name)
+            }
+            Log.d("--saveMenuObject--", itemNameList.toString())
+
+            ncmbObj.put("menu_content", itemNameList)
             ncmbObj.put("menu_date", menuDateEdit)
             ncmbObj.put("menu_targetuser", menuTargetEdit)
             ncmbObj.save()

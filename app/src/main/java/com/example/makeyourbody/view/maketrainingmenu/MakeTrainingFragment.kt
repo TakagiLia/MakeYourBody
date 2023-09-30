@@ -120,7 +120,7 @@ class MakeTrainingFragment : Fragment() {
                         CommonFormatter().dateConvert(viewModel.menuDate.value.toString())
 
                     NiftyCloudApiClient().saveMenuObject(
-                        viewModel.selectedItems.value.toString(),
+                        viewModel.selectedItems.value,
                         date, viewModel.menuTargetUser.value.toString()
                     )
                 }
