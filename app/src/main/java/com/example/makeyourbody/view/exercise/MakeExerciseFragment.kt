@@ -45,7 +45,7 @@ class MakeExerciseFragment : Fragment() {
             exerciseRegisterBtn.setOnClickListener {
                 NiftyCloudApiClient().saveExercise(
                     exerciseNameEdit.text.toString(),
-                    exerciseContentEdit.text.toString()
+                    exerciseContentEdit.text.toString(),""
                 )
                 Navigation.findNavController(view).navigate(R.id.action_make_exercise_to_top)
             }
