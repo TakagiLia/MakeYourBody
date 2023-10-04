@@ -100,16 +100,16 @@ class NiftyCloudApiClient {
 
         runCatching {
             val query = NCMBQuery.forObject("main_menus")
-            query.whereEqualTo("menu_date", searchKey)
+            query.whereEqualTo("menu_searchDateKey", searchKey)
             query.find()
         }.onSuccess { objList ->
             trainingMenus = objList.map { obj ->
-                val menuDate = obj.getString("menu_date") ?: ""
+                var menuDate = obj.getString("menu_date") ?: ""
                 val menuTarget = obj.getString("menu_targetuser") ?: ""
                 val menuTrainer = obj.getString("menu_trainer") ?: ""
                 val menuContent = obj.getString("menu_content") ?: ""
                 val objectId = obj.getObjectId() ?: ""
-                //val splitMenuContent = menuContent.split("TrainingItem(","),")
+                menuDate = menuDate.substring(24,34).replace("-","/")
                 TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
             }
         }
@@ -145,7 +145,7 @@ class NiftyCloudApiClient {
     }
 
     //メニュー登録画面でSave時
-    fun saveMenuObject(selectedItems:Set<TrainingItem>?, menuDateEdit: Date, menuTargetEdit: String) {
+    fun saveMenuObject(selectedItems:Set<TrainingItem>?, menuDateEdit: Date, menuTargetEdit: String,menuDateSearch : String) {
         runCatching {
             var ncmbObj = NCMBObject("main_menus")
 
@@ -158,6 +158,7 @@ class NiftyCloudApiClient {
             ncmbObj.put("menu_content", itemNameList)
             ncmbObj.put("menu_date", menuDateEdit)
             ncmbObj.put("menu_targetuser", menuTargetEdit)
+            ncmbObj.put("menu_searchDateKey", menuTargetEdit)
             ncmbObj.save()
         }.onSuccess {
             Log.d("--success--", "メニュー登録に成功しました")
