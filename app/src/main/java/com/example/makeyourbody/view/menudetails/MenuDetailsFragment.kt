@@ -116,7 +116,8 @@ class MenuDetailsFragment :Fragment() {
 
                         //保存のため再度表示されているリストの要素データを集める
                         val trainingItemContent = editTrainingListViewModel.selectedItems.value?.map { selectedItems ->
-                            selectedItems.name
+                            //selectedItems.name
+                            selectedItems.objectId
                         }
                         //実際の保存処理
                         val updateTrainingMenu = TrainingMenu(
