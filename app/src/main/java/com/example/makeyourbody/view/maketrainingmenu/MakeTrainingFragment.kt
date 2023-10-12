@@ -116,12 +116,11 @@ class MakeTrainingFragment : Fragment() {
                 menuSaveBtn.setOnClickListener {
 
                     //Dateに変換
-                    val menuDate = viewModel.menuDate.value.toString().replace("/","-")
-                    val date = CommonFormatter().dateConvert(menuDate)
+                    val menuDate = viewModel.menuDate.value.toString()
 
                     NiftyCloudApiClient().saveMenuObject(
                         viewModel.selectedItems.value,
-                        date, viewModel.menuTargetUser.value.toString(),menuDate
+                        menuDate, viewModel.menuTargetUser.value.toString(),menuDate
                     )
                 }
             }
