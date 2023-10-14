@@ -66,7 +66,6 @@ class NiftyCloudApiClient {
                 val menuTrainer = obj.getString("menu_trainer") ?: ""
                 val menuContent = obj.getString("menu_content") ?: ""
                 val objectId = obj.getObjectId() ?: ""
-                menuDate = menuDate.substring(24,34).replace("-","/")
                 TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
             }
         }
@@ -100,7 +99,7 @@ class NiftyCloudApiClient {
 
         runCatching {
             val query = NCMBQuery.forObject("main_menus")
-            query.whereEqualTo("menu_searchDateKey", searchKey)
+            query.whereEqualTo("menu_date", searchKey)
             query.find()
         }.onSuccess { objList ->
             trainingMenus = objList.map { obj ->
@@ -109,7 +108,6 @@ class NiftyCloudApiClient {
                 val menuTrainer = obj.getString("menu_trainer") ?: ""
                 val menuContent = obj.getString("menu_content") ?: ""
                 val objectId = obj.getObjectId() ?: ""
-                menuDate = menuDate.substring(24,34).replace("-","/")
                 TrainingMenu(menuDate, menuTarget, menuTrainer, menuContent, objectId)
             }
         }
@@ -145,7 +143,7 @@ class NiftyCloudApiClient {
     }
 
     //メニュー登録画面でSave時
-    fun saveMenuObject(selectedItems:Set<TrainingItem>?, menuDateEdit: Date, menuTargetEdit: String,menuDateSearch : String) {
+    fun saveMenuObject(selectedItems:Set<TrainingItem>?, menuDateEdit: String, menuTargetEdit: String,menuDateSearch : String) {
         runCatching {
             var ncmbObj = NCMBObject("main_menus")
 
@@ -154,11 +152,9 @@ class NiftyCloudApiClient {
                 itemNameList.add(item.objectId)
             }
             Log.d("--saveMenuObject--", itemNameList.toString())
-
             ncmbObj.put("menu_content", itemNameList)
             ncmbObj.put("menu_date", menuDateEdit)
             ncmbObj.put("menu_targetuser", menuTargetEdit)
-            ncmbObj.put("menu_searchDateKey", menuTargetEdit)
             ncmbObj.save()
         }.onSuccess {
             Log.d("--success--", "メニュー登録に成功しました")
@@ -217,7 +213,7 @@ class NiftyCloudApiClient {
             // objectIdプロパティを設定
             obj.setObjectId(updateTrainingMenu.objectId)
             // オブジェクトに値を設定
-            obj.put("menu_date",  CommonFormatter().dateConvert(updateTrainingMenu.menuDate))
+            obj.put("menu_date",  updateTrainingMenu.menuDate)
             obj.put("menu_targetuser", updateTrainingMenu.menuTarget)
             obj.put("menu_trainer", updateTrainingMenu.menuTrainer)//updateTrainingMenu.menuTrainer != null ?
             obj.put("menu_content", updateTrainingMenu.menuContent)
