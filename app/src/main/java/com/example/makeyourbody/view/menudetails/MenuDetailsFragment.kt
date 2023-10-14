@@ -13,6 +13,7 @@ import com.example.makeyourbody.R
 import com.example.makeyourbody.data.TrainingItem
 import com.example.makeyourbody.data.TrainingMenu
 import com.example.makeyourbody.databinding.FragmentMenuDetailsBinding
+import com.example.makeyourbody.view.dialog.DatePickerFragment
 import com.example.makeyourbody.view.exercisedetails.ExerciseDetailsViewModel
 import com.example.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
 import com.example.makeyourbody.view.maketrainingmenu.edittraininglist.EditTrainingListAdapter
@@ -82,6 +83,27 @@ class MenuDetailsFragment :Fragment() {
                         MenuDetailsListAdapter(menuDetailsItemList, onClickInfoBtn)
 
                 }
+            }
+
+            //日付ダイアログ
+            menuDetailsDate.setOnClickListener{
+
+                DatePickerFragment().show(
+                    childFragmentManager,
+                    DatePickerFragment::class.java.name
+                )
+                //日付ダイアログでOK押下の際DatePickerFragmentからの値受け取り
+                childFragmentManager.setFragmentResultListener(
+                    "request_key",
+                    viewLifecycleOwner
+                ) { _, result: Bundle ->
+                    result.getString("date_picker_value")
+                        ?.let {
+                            menuDetailsViewModel.setMenuDate(it)
+                            menuDetailsDate.setText(it)
+                        }
+                    }
+
             }
 
             //編集切り替えボタン押下時の処理
