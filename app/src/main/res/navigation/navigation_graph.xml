@@ -7,7 +7,7 @@
     <!--ログインページ-->
     <fragment
         android:id="@+id/login_screen"
-        android:name="com.example.makeyourbody.view.login.LoginFragment"
+        android:name="com.takagi.makeyourbody.view.login.LoginFragment"
         android:label="login_screen">
         <action
             android:id="@+id/action_signup_screen"
@@ -20,7 +20,7 @@
     <!--トップページ-->
     <fragment
         android:id="@+id/top_screen"
-        android:name="com.example.makeyourbody.view.top.TopPageFragment"
+        android:name="com.takagi.makeyourbody.view.top.TopPageFragment"
         android:label="top_screen">
         <action
             android:id="@+id/action_make_menu_screen"
@@ -39,7 +39,7 @@
     <!--ユーザ登録ページ-->
     <fragment
         android:id="@+id/signup_screen"
-        android:name="com.example.makeyourbody.view.signup.SignUpFragment"
+        android:name="com.takagi.makeyourbody.view.signup.SignUpFragment"
         android:label="signup_screen">
         <action
             android:id="@+id/action_login_screen"
@@ -49,14 +49,14 @@
     <!--トレーニングメニュー作成ページ-->
     <fragment
         android:id="@+id/make_menu_screen"
-        android:name="com.example.makeyourbody.view.maketrainingmenu.MakeTrainingFragment"
+        android:name="com.takagi.makeyourbody.view.maketrainingmenu.MakeTrainingFragment"
         android:label="make_menu_screen">
     </fragment>
 
     <!--種目マスタ作成画面-->
     <fragment
         android:id="@+id/make_exercise_screen"
-        android:name="com.example.makeyourbody.view.exercise.MakeExerciseFragment"
+        android:name="com.takagi.makeyourbody.view.exercise.MakeExerciseFragment"
         android:label="make_exercise_screen">
         <action
             android:id="@+id/action_make_exercise_to_top"
@@ -66,7 +66,7 @@
     <!--スケジュール表示画面-->
     <fragment
         android:id="@+id/schedule_screen"
-        android:name="com.example.makeyourbody.view.schedule.ScheduleFragment"
+        android:name="com.takagi.makeyourbody.view.schedule.ScheduleFragment"
         android:label="schedule_screen">
         <action
             android:id="@+id/action_schedule_to_details"
@@ -76,7 +76,7 @@
     <!--メニュー詳細画面のフラグメント-->
     <fragment
         android:id="@+id/menu_details_screen"
-        android:name="com.example.makeyourbody.view.menudetails.MenuDetailsFragment"
+        android:name="com.takagi.makeyourbody.view.menudetails.MenuDetailsFragment"
         android:label="menu_details">
         <action
             android:id="@+id/action_menu_details_to_exercise_details_screen"
@@ -86,7 +86,7 @@
     <!--種目の詳細ページのフラグメント-->
     <fragment
         android:id="@+id/exercise_details_screen"
-        android:name="com.example.makeyourbody.view.exercisedetails.ExerciseDetailsFragment"
+        android:name="com.takagi.makeyourbody.view.exercisedetails.ExerciseDetailsFragment"
         android:label="exercise_details">
     </fragment>
 

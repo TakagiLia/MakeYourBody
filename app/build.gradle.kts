@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.makeyourbody"
+    namespace = "com.takagi.makeyourbody"
     compileSdk = 33
 
     defaultConfig {
-        applicationId  = "com.example.makeyourbody"
+        applicationId  = "com.takagi.makeyourbody"
         minSdk = 26
         targetSdk = 33
         versionCode = 1
