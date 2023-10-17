@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.makeyourbody.view.signup.SignUpViewModel"/>
+            type="com.takagi.makeyourbody.view.signup.SignUpViewModel"/>
 
     </data>
 
@@ -305,7 +305,7 @@
                 app:layout_constraintTop_toTopOf="@id/signup_age_label" />
 
             <!--性別選択欄-->
-            <com.example.makeyourbody.view.signup.GenderSelectorView
+            <com.takagi.makeyourbody.view.signup.GenderSelectorView
                 android:id="@+id/signup_gender_edit"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
@@ -399,7 +399,7 @@
                 app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
 
             <!--トレーニングタイプ入力内容表示欄-->
-            <com.example.makeyourbody.view.signup.TrainingTypeSelectorView
+            <com.takagi.makeyourbody.view.signup.TrainingTypeSelectorView
                 android:id="@+id/signup_attr_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
