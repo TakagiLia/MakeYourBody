@@ -34,30 +34,18 @@
             app:layout_constraintRight_toLeftOf="@id/menu_date_btn"
             app:layout_constraintTop_toBottomOf="@id/menu_logo" />
 
-        <!--対象ユーザ入力欄のラベル-->
-        <TextView
-            android:id="@+id/menu_target_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/menu_target_user"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/menu_target_edit"
-            app:layout_constraintLeft_toLeftOf="@id/menu_target_edit"
-            app:layout_constraintLeft_toRightOf="@id/menu_date_edit"
-            app:layout_constraintTop_toBottomOf="@id/menu_logo" />
 
         <!--日付選択ダイアログ表示するボタン-->
         <Button
             android:id="@+id/menu_date_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:background="@drawable/button_datepicker"
             android:text="@string/menu_date_btn"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/menu_date_label"
             app:layout_constraintTop_toBottomOf="@id/menu_date_label" />
@@ -65,47 +53,57 @@
         <!--入力したセッション日内容を表示-->
         <TextView
             android:id="@+id/menu_date_edit"
-            android:layout_width="104dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
             android:background="@drawable/edittext"
             android:padding="8dp"
             android:textSize="16sp"
+            app:layout_constraintWidth_percent="0.4"
             app:layout_constraintBottom_toBottomOf="@id/menu_date_btn"
             app:layout_constraintLeft_toRightOf="@id/menu_date_btn"
-            app:layout_constraintRight_toLeftOf="@id/menu_target_edit"
             app:layout_constraintTop_toTopOf="@id/menu_date_btn" />
+
+        <!--対象ユーザ入力欄のラベル-->
+        <TextView
+            android:id="@+id/menu_target_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/menu_target_user"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/menu_date_btn"
+            app:layout_constraintTop_toBottomOf="@id/menu_date_btn" />
 
         <!--対象ユーザ入力欄-->
         <EditText
             android:id="@+id/menu_target_edit"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginStart="40dp"
             android:autofillHints=""
             android:background="@drawable/edittext"
             android:hint="@string/menu_target_user_hint"
             android:inputType="text"
+            android:autoSizeTextType="uniform"
             android:maxLength="9"
             android:maxLines="1"
             android:padding="8dp"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/menu_date_edit"
-            app:layout_constraintLeft_toRightOf="@id/menu_date_edit"
-            app:layout_constraintTop_toBottomOf="@id/menu_date_label"
-            app:layout_constraintTop_toTopOf="@id/menu_date_edit" />
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintTop_toBottomOf="@id/menu_target_label"
+            app:layout_constraintLeft_toLeftOf="@id/menu_target_label"/>
 
         <!--トレーニング内容選択欄のラベル-->
         <TextView
             android:id="@+id/menu_content_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/menu_content"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menu_date_btn" />
+            app:layout_constraintLeft_toLeftOf="@id/menu_target_edit"
+            app:layout_constraintTop_toBottomOf="@id/menu_target_edit" />
 
         <!--種目選択ダイアログのボタン-->
         <Button
@@ -125,12 +123,11 @@
             android:id="@+id/menu_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/menu_content_detail"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/menu_item_select_btn"
             app:layout_constraintTop_toBottomOf="@id/menu_item_select_btn" />
 
         <!--選択したトレーニングを表示するリスト-->
@@ -138,20 +135,19 @@
             android:id="@+id/menu_selected_item"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+
+            app:layout_constraintLeft_toLeftOf="@id/menu_details"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/menu_details"
-            app:layout_constraintVertical_bias="0.1" />
+            />
 
         <!--メニュー保存ボタン-->
         <Button
             android:id="@+id/menu_save_btn"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/button_custom"
             android:text="@string/menu_save_btn_label"
             android:textColor="@color/white"
@@ -161,7 +157,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/menu_selected_item" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
