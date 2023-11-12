@@ -4,21 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="80dp"
-        android:background="@color/primary_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!--スケジュール表示ページのロゴ-->
     <ImageView
         android:id="@+id/schedule_logo"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
         android:src="@drawable/schedule_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -31,7 +23,6 @@
         android:id="@+id/schedule_date_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/schedule_date_label"
         android:textSize="16sp"
@@ -44,7 +35,6 @@
         android:id="@+id/schedule_date_btn"
         android:layout_width="80dp"
         android:layout_height="36dp"
-        android:layout_marginLeft="16dp"
         android:background="@drawable/button_datepicker"
         android:text="@string/menu_date_btn"
         android:textColor="@color/white"
@@ -69,7 +59,6 @@
         android:id="@+id/schedule_list_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/schedule_list_label"
         android:textSize="16sp"
@@ -82,12 +71,11 @@
         android:id="@+id/schedule_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="16dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/schedule_list_label"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/schedule_list_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

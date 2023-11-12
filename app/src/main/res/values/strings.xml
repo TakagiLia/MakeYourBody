@@ -59,8 +59,13 @@
     <string name="menu_trainee">対象者</string>
     <string name="menu_date_btn">日付選択</string>
     <string name="menu_content">トレーニング選択</string>
+    <string name="menu_target_user">対象ユーザ</string>
+    <string name="menu_target_user_hint">山田太郎</string>
     <string name="menu_content_detail">選択したトレーニング</string>
     <string name="menu_save_btn_label">メニュー保存</string>
+
+    <!--種目選択ポップアップで利用-->
+    <string name="item_list_back_button_label">種目リストを閉じる</string>
 
     <!--種目マスタ作成画面-->
     <string name="exercise_name">種目名</string>

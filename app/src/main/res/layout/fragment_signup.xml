@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
-            type="com.takagi.makeyourbody.view.signup.SignUpViewModel"/>
+            type="com.takagi.makeyourbody.view.signup.SignUpViewModel" />
 
     </data>
 
@@ -19,24 +20,14 @@
             android:layout_height="0dp"
             tools:context=".view.signup.SignUpFragment">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="80dp"
-                android:background="@color/primary_color"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/signup_logo"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="80dp"
                 android:contentDescription="@string/signup_logo"
+                android:scaleType="centerCrop"
                 android:src="@drawable/signup_logo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,13 +36,11 @@
                 android:id="@+id/signup_name_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/signup_name_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_name_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/signup_logo" />
 
@@ -60,7 +49,7 @@
                 android:id="@+id/signup_name_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:autofillHints="name"
                 android:background="@drawable/edittext"
                 android:hint="@string/signup_name_hint"
@@ -68,180 +57,166 @@
                 android:maxLength="20"
                 android:maxLines="1"
                 android:padding="16dp"
-                android:textSize="16sp"
                 android:text="@{vm.name}"
-                app:layout_constraintBottom_toBottomOf="@id/signup_name_label"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintStart_toEndOf="@id/signup_name_label"
-                app:layout_constraintTop_toTopOf="@id/signup_name_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_name_label" />
 
             <!--エラー文「名前を入力してください」-->
             <TextView
                 android:id="@+id/signup_name_error"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="left"
-                android:visibility="invisible"
                 android:text="@string/signup_name_error"
                 android:textColor="@color/origin_red"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/signup_login_name_edit"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_name_edit" />
 
             <!--エラー文「20文字以内で入力してください」-->
             <TextView
                 android:id="@+id/signup_name_length_error"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="left"
-                android:visibility="invisible"
                 android:text="@string/signup_length_error"
                 android:textColor="@color/origin_red"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/signup_login_name_edit"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_name_edit" />
 
             <!--ユーザ名入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_login_name_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/signup_login_name_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_name_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_name_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_name_length_error" />
 
             <!--ユーザ名入力欄-->
             <EditText
                 android:id="@+id/signup_login_name_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:background="@drawable/edittext"
                 android:hint="@string/signup_login_name_hint"
                 android:inputType="text"
-                android:text="@{vm.loginName}"
                 android:maxLength="20"
                 android:maxLines="1"
                 android:padding="16dp"
+                android:text="@{vm.loginName}"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/signup_login_name_label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintStart_toEndOf="@id/signup_login_name_label"
-                app:layout_constraintTop_toBottomOf="@id/signup_name_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_login_name_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_login_name_label" />
 
             <!--エラー文「ユーザ名を入力してください」-->
             <TextView
                 android:id="@+id/signup_login_name_error"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="left"
-                android:visibility="invisible"
                 android:text="@string/signup_login_name_error"
                 android:textColor="@color/origin_red"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/signup_pass_edit"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_login_name_edit" />
 
             <!--エラー文「20文字以内で入力してください」-->
             <TextView
                 android:id="@+id/signup_login_name_length_error"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="left"
-                android:visibility="invisible"
                 android:text="@string/signup_length_error"
                 android:textColor="@color/origin_red"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/signup_pass_edit"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_login_name_edit" />
 
             <!--パスワード入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_pass_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/signup_pass_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_login_name_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_login_name_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_login_name_error" />
 
             <!--ユーザ名入力欄-->
             <EditText
                 android:id="@+id/signup_pass_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:background="@drawable/edittext"
                 android:hint="@string/signup_pass_hint"
                 android:maxLength="20"
                 android:maxLines="1"
                 android:padding="16dp"
-                android:textSize="16sp"
                 android:text="@{vm.password}"
-                app:layout_constraintBottom_toBottomOf="@id/signup_pass_label"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintStart_toEndOf="@id/signup_pass_label"
-                app:layout_constraintTop_toBottomOf="@id/signup_login_name_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_pass_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_pass_label" />
 
             <!--エラー文「パスワードを入力してください」-->
             <TextView
                 android:id="@+id/signup_pass_error"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
                 android:gravity="left"
-                android:visibility="invisible"
                 android:text="@string/signup_pass_error"
                 android:textColor="@color/origin_red"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/signup_age_edit"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_pass_edit" />
 
             <!--エラー文「8文字以内で入力してください」-->
             <TextView
                 android:id="@+id/signup_pass_length_error"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
                 android:gravity="left"
-                android:visibility="invisible"
                 android:text="@string/signup_pass_length_error"
                 android:textColor="@color/origin_red"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@id/signup_age_edit"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_pass_edit" />
 
             <!--パスワード非表示アイコンボタン-->
             <ImageButton
@@ -260,170 +235,151 @@
                 android:id="@+id/signup_age_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="4dp"
                 android:gravity="center"
                 android:text="@string/signup_age_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_name_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_pass_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_pass_error" />
 
             <!--年齢入力内容表示欄-->
             <TextView
                 android:id="@+id/signup_age_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:background="@drawable/edittext"
                 android:hint="@string/signup_dialog_hint"
                 android:maxLength="3"
                 android:maxLines="1"
                 android:padding="16dp"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/signup_age_label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintStart_toEndOf="@id/signup_age_label"
-                app:layout_constraintTop_toBottomOf="@id/signup_pass_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_age_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_age_label" />
 
             <!--性別入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_gender_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/signup_gender_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_gender_edit"
                 app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_age_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_age_edit" />
 
             <!--性別選択欄-->
             <com.takagi.makeyourbody.view.signup.GenderSelectorView
                 android:id="@+id/signup_gender_edit"
-                android:layout_width="288dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/signup_gender_label"
+                android:layout_marginHorizontal="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signup_age_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_gender_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_gender_label" />
 
             <!--身長入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_height_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/signup_height_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_height_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_gender_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_gender_edit" />
 
             <!--身長入力内容表示欄-->
             <TextView
                 android:id="@+id/signup_height_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:background="@drawable/edittext"
                 android:hint="@string/signup_dialog_hint"
                 android:maxLength="6"
                 android:maxLines="1"
                 android:padding="16dp"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/signup_height_label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintStart_toEndOf="@id/signup_height_label"
-                app:layout_constraintTop_toBottomOf="@id/signup_age_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_height_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_height_label" />
 
             <!--体重入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_weight_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/signup_weight_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_height_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_height_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_height_edit" />
 
             <!--体重入力内容表示欄-->
             <TextView
                 android:id="@+id/signup_weight_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:background="@drawable/edittext"
                 android:hint="@string/signup_dialog_hint"
                 android:maxLength="6"
                 android:maxLines="1"
                 android:padding="16dp"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/signup_weight_label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintStart_toEndOf="@id/signup_weight_label"
-                app:layout_constraintTop_toBottomOf="@id/signup_height_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_weight_label" />
 
             <!--トレーニングタイプ入力欄のラベル-->
             <TextView
                 android:id="@+id/signup_attr_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/signup_attr_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/signup_weight_edit"
-                app:layout_constraintHorizontal_weight="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/signup_weight_label" />
+                app:layout_constraintTop_toBottomOf="@id/signup_weight_edit" />
 
             <!--トレーニングタイプ入力内容表示欄-->
             <com.takagi.makeyourbody.view.signup.TrainingTypeSelectorView
                 android:id="@+id/signup_attr_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="@id/signup_attr_label"
+                android:layout_marginHorizontal="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signup_weight_edit"
-                app:layout_constraintTop_toTopOf="@id/signup_attr_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_attr_label" />
 
             <!--保存ボタン（非活性）-->
             <Button
                 android:id="@+id/signup_userBtn_Inactive"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_custom"
                 android:backgroundTint="@color/pale_red_color"
+                android:enabled="false"
                 android:text="@string/signup_btn_label"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:visibility="visible"
-                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/signup_attr_edit" />
@@ -433,13 +389,14 @@
                 android:id="@+id/signup_userBtn"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_custom"
+                android:enabled="false"
                 android:text="@string/signup_btn_label"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:enabled="false"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

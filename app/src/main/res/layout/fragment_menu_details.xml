@@ -4,128 +4,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="@color/primary_color"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!--メニュー詳細ページのロゴ-->
     <ImageView
         android:id="@+id/menu_details_logo"
         android:layout_width="0dp"
         android:layout_height="80dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
         android:src="@drawable/menudetails_logo"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <!--セッション日入力欄のラベル-->
     <TextView
         android:id="@+id/menu_details_date_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/menu_date"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:text="@string/menu_date"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/menu_details_logo"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_details_logo" />
 
     <!--セッション日入力欄-->
     <TextView
         android:id="@+id/menu_details_date"
-        android:layout_width="386dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/details_edittext"
+        android:enabled="false"
         android:padding="8dp"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginLeft="16dp"
-        android:enabled="false"
-        android:textColor="@color/black"
-        android:background="@drawable/details_edittext"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/menu_details_date_label"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintWidth_percent="0.8" />
 
     <!--対象ユーザ入力欄のラベル-->
     <TextView
         android:id="@+id/menu_details_target_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/menu_trainee"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:text="@string/menu_trainee"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/menu_details_date"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_details_date" />
 
     <!--対象ユーザ入力欄-->
     <EditText
         android:id="@+id/menu_details_target"
-        android:layout_width="386dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/details_edittext"
         android:enabled="false"
+        android:padding="8dp"
         android:paddingVertical="-8dp"
         android:textColor="@color/black"
-        android:background="@drawable/details_edittext"
-        android:padding="8dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/menu_details_target_label"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintWidth_percent="0.8" />
 
     <!--トレーニング内容選択欄のラベル-->
     <TextView
         android:id="@+id/menu_details_item_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/menu_training_label"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:text="@string/menu_training_label"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/menu_details_target"
-        app:layout_constraintRight_toLeftOf="@id/menu_details_select_btn"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/menu_details_target" />
 
     <!--種目選択ダイアログのボタン-->
     <Button
-        android:visibility="invisible"
-        android:enabled="false"
         android:id="@+id/menu_details_select_btn"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_marginVertical="2dp"
         android:background="@drawable/button_datepicker"
+        android:enabled="false"
         android:text="@string/menu_training_btn_label"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/menu_details_target"
-        app:layout_constraintLeft_toRightOf="@id/menu_details_item_label"
-        app:layout_constraintBottom_toTopOf="@id/menu_details_list"/>
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/menu_details_list"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_details_item_label" />
 
     <!--選択されているトレーニングを表示する欄のラベル-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menu_details_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/menu_details_item_label"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.1"/>
+        app:layout_constraintVertical_bias="0.1" />
 
     <!--メニュー編集保存切り替えボタン-->
     <Button
@@ -136,10 +124,10 @@
         android:text="@string/menu_edit_btn_label"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/menu_details_list"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.1"/>
+        app:layout_constraintTop_toBottomOf="@id/menu_details_list"
+        app:layout_constraintVertical_bias="0.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
