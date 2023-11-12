@@ -46,21 +46,27 @@ class TrainingListFragment : DialogFragment() {
             binding.selectItemList.adapter = TrainingListAdapter(trainingItems, onItemClick)
         }
 
-        //種目マスタの検索
-        binding.selectItemSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                val filterList = trainingItems.filter { it.name == query }
-                binding.selectItemList.adapter = TrainingListAdapter(filterList, onItemClick)
-                return false
-            }
+        //種目選択ポップアップ閉じるボタン
+        binding.selectItemBackButton.setOnClickListener {
+            dismiss()
+        }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText.isNullOrEmpty()) {
-                    binding.selectItemList.adapter = TrainingListAdapter(trainingItems, onItemClick)
-                }
-                return false
-            }
-        })
+        //種目マスタの検索
+        //TODO カスタムビューで再実装予定。一旦コメントアウト
+//        binding.selectItemSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                val filterList = trainingItems.filter { it.name == query }
+//                binding.selectItemList.adapter = TrainingListAdapter(filterList, onItemClick)
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                if (newText.isNullOrEmpty()) {
+//                    binding.selectItemList.adapter = TrainingListAdapter(trainingItems, onItemClick)
+//                }
+//                return false
+//            }
+//        })
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

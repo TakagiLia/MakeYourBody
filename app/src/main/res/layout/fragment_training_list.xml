@@ -5,36 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="@color/primary_color"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!--種目選択ダイアログのロゴ-->
     <ImageView
         android:id="@+id/select_item_logo"
         android:layout_width="0dp"
         android:layout_height="80dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/training_item_select_logo"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:id="@+id/select_item_search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:queryHint="種目検索"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/select_item_logo" />
+    <!--TODO カスタムビューで再実装予定。一旦コメントアウト-->
+    <!--    <SearchView-->
+    <!--        android:id="@+id/select_item_search"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:inputType="text"-->
+    <!--        android:queryHint="種目検索"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/select_item_logo" />-->
 
     <!--種目リスト-->
     <androidx.recyclerview.widget.RecyclerView
@@ -43,9 +37,20 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/select_item_search"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/select_item_back_button"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_item_logo" />
+
+    <Button
+        android:id="@+id/select_item_back_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_color"
+        android:text="@string/item_list_back_button_label"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_item_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
