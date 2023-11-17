@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.takagi.makeyourbody.LogoutDialog
-import com.takagi.makeyourbody.NiftyCloudApiClient
 import com.takagi.makeyourbody.R
 import com.takagi.makeyourbody.view.signup.TrainingType
 import com.takagi.makeyourbody.databinding.FragmentTopPageBinding
 import com.nifcloud.mbaas.core.NCMBUser
+import com.takagi.makeyourbody.view.disabledBackPressed
 
 class TopPageFragment : Fragment() {
 
@@ -70,7 +70,9 @@ class TopPageFragment : Fragment() {
                     LogoutDialog().show(childFragmentManager, "logout_dialog")
                 }
 
-            }
+        }
+        // 戻るボタン無効化
+        disabledBackPressed()
     }
     override fun onCreateView(
         inflater: LayoutInflater,

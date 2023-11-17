@@ -11,6 +11,7 @@ import com.takagi.makeyourbody.NiftyCloudApiClient
 import com.takagi.makeyourbody.R
 import com.takagi.makeyourbody.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import com.takagi.makeyourbody.view.disabledBackPressed
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -52,6 +53,9 @@ class LoginFragment : Fragment() {
                 Navigation.findNavController(view).navigate(R.id.action_signup_screen)
             }
         }
+        // 戻るボタン無効化
+        disabledBackPressed()
+
     }
 
     override fun onCreateView(
