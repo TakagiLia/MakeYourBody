@@ -42,11 +42,11 @@ class ScheduleFragment : Fragment() {
                 "request_key",
                 viewLifecycleOwner
             ) { _, result: Bundle ->
-                binding.scheduleDateEdit.setText(result.getString("date_picker_value"))
+                binding.scheduleDateEdit.text = result.getString("date_picker_value")
 
-                var resultSearch =  binding.scheduleDateEdit.text.toString()?.let{
+                val resultSearch =  binding.scheduleDateEdit.text.toString().let{
                     NiftyCloudApiClient().searchTrainingMenu(it)
-                } ?: NiftyCloudApiClient().getTrainingMenu()
+                }
                 binding.scheduleList.adapter = ScheduleListAdapter(resultSearch,onDetailBtnClick)
             }
         }
@@ -60,7 +60,7 @@ class ScheduleFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentScheduleBinding.inflate(inflater, container, false)
         return binding.root
