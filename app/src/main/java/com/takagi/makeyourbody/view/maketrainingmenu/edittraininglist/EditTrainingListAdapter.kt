@@ -10,7 +10,6 @@ import com.takagi.makeyourbody.view.maketrainingmenu.EditTrainingListViewModel
 
 class EditTrainingListAdapter(
     private val trainingItems: List<TrainingItem>,
-    private val deleteSelectedItems: (TrainingItem) -> Unit,
     private val viewModel: EditTrainingListViewModel
 ) : RecyclerView.Adapter<EditTrainingListViewHolder>(){
 
