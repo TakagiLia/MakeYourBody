@@ -13,14 +13,11 @@ class ScheduleListFragment :Fragment() {
 
     private val binding get() = _binding!!
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentListScheduleBinding.inflate(inflater, container, false)
         return binding.root
