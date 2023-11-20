@@ -7,8 +7,8 @@ import com.takagi.makeyourbody.R
 
 class TrainingItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    val itemName = itemView.findViewById<TextView>(R.id.training_date)
+    val itemName: TextView = itemView.findViewById<TextView>(R.id.training_date)
 
-    val itemContent = itemView.findViewById<TextView>(R.id.training_target)
+    val itemContent: TextView = itemView.findViewById<TextView>(R.id.training_target)
 
 }

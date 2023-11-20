@@ -12,9 +12,6 @@ class EditTrainingListFragment :Fragment(){
     private var _binding: FragmentListSelectedTrainingBinding? = null
     private val binding get() = _binding!!
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -47,20 +47,15 @@ class MenuDetailsFragment :Fragment() {
         findNavController().navigate(R.id.action_menu_details_to_exercise_details_screen)
     }
 
-    //リストアイテム削除処理
-    private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
-        editTrainingListViewModel.deleteSelectedItems(trainingItem)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fixingList =
             NiftyCloudApiClient().trainingItemFixList(menuDetailsViewModel.menu.value?.menuContent.toString())
         binding.apply {
             //初期表示設定
-            menuDetailsDate.setText(menuDetailsViewModel.menu.value?.menuDate)
+            menuDetailsDate.text = menuDetailsViewModel.menu.value?.menuDate
             menuDetailsTarget.setText(menuDetailsViewModel.menu.value?.menuTarget)
-            var menuDetailsItemList = NiftyCloudApiClient().getTrainingItemBindingMenu(fixingList) ?: emptyList()
+            var menuDetailsItemList = NiftyCloudApiClient().getTrainingItemBindingMenu(fixingList)
             editTrainingListViewModel.setSelectedItems(menuDetailsItemList)
 
             Log.d("--初期トレーニングアイテム--",menuDetailsItemList.toString())
@@ -76,7 +71,7 @@ class MenuDetailsFragment :Fragment() {
                 if(editBtnFlg){
                     Log.d("--監視editBtnFlg--","①")
                     menuDetailsList.adapter =
-                        EditTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
+                        EditTrainingListAdapter(menuDetailsItemList,editTrainingListViewModel)
                 }else{
                     Log.d("--監視editBtnFlg--","②")
                     menuDetailsList.adapter =
@@ -100,14 +95,14 @@ class MenuDetailsFragment :Fragment() {
                     result.getString("date_picker_value")
                         ?.let {
                             menuDetailsViewModel.setMenuDate(it)
-                            menuDetailsDate.setText(it)
+                            menuDetailsDate.text = it
                         }
                     }
 
             }
 
             //編集切り替えボタン押下時の処理
-            menuDetailsEditBtn.setOnClickListener { view ->
+            menuDetailsEditBtn.setOnClickListener {
                 //日付、対象者項目編集可能にする　トレーニングメニュー選択ボタン活性
                 menuDetailsDate.isEnabled = !menuDetailsDate.isEnabled
                 menuDetailsTarget.isEnabled = !menuDetailsTarget.isEnabled
@@ -123,7 +118,7 @@ class MenuDetailsFragment :Fragment() {
                     menuDetailsEditBtn.setText(R.string.menu_save_btn_label)
                     menuDetailsItemListBefore = menuDetailsItemList
                     menuDetailsList.adapter =
-                        EditTrainingListAdapter(menuDetailsItemList,onItemClick,editTrainingListViewModel)
+                        EditTrainingListAdapter(menuDetailsItemList,editTrainingListViewModel)
                 }else{
                     Log.d("--editBtnFlg--","②")
                     //ボタンやトレーニングボタンを非表示にする

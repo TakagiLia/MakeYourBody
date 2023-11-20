@@ -24,9 +24,6 @@ class MakeTrainingFragment : Fragment() {
 
     private val editTrainingListViewModel: EditTrainingListViewModel by activityViewModels()
 
-    private val onItemClick: (TrainingItem) -> Unit = { trainingItem ->
-        editTrainingListViewModel.deleteSelectedItems(trainingItem)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,9 +44,9 @@ class MakeTrainingFragment : Fragment() {
                         viewLifecycleOwner
                     ) { _, result: Bundle ->
                         result.getString("date_picker_value")
-                            ?.let { it1 ->
-                                viewModel.setMenuDate(it1)
-                                menuDateEdit.setText(it1)
+                            ?.let { resultDate ->
+                                viewModel.setMenuDate(resultDate)
+                                menuDateEdit.text = resultDate
                             }
                     }
                 }
@@ -70,7 +67,7 @@ class MakeTrainingFragment : Fragment() {
                 viewModel.selectedItems.observe(viewLifecycleOwner) {
                     Log.d("---MakeTrainingFragment---", "selectedItems監視")
                     menuSelectedItem.adapter = it?.let {
-                        EditTrainingListAdapter(it.toList(), onItemClick, editTrainingListViewModel)
+                        EditTrainingListAdapter(it.toList(), editTrainingListViewModel)
                     }
 
                     //保存ボタンの活性非活性
@@ -120,7 +117,7 @@ class MakeTrainingFragment : Fragment() {
 
                     NiftyCloudApiClient().saveMenuObject(
                         viewModel.selectedItems.value,
-                        menuDate, viewModel.menuTargetUser.value.toString(),menuDate
+                        menuDate, viewModel.menuTargetUser.value.toString()
                     )
                 }
             }

@@ -9,7 +9,6 @@ import com.takagi.makeyourbody.databinding.ViewGenderSelectorBinding
 class GenderSelectorView(context: Context, attributeSet: AttributeSet?) :
     FrameLayout(context, attributeSet) {
 
-    private var selectedGender: Gender = Gender.FEMALE
     lateinit var currentGender: Gender
         private set
 

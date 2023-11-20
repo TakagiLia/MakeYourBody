@@ -8,8 +8,8 @@ import com.takagi.makeyourbody.R
 
 class MenuDetailsListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    val menuName = itemView.findViewById<TextView>(R.id.menu_details_list_name)
+    val menuName: TextView = itemView.findViewById(R.id.menu_details_list_name)
 
-    val infoBtn = itemView.findViewById<ImageButton>(R.id.menu_details_list_btn)
+    val infoBtn: ImageButton = itemView.findViewById(R.id.menu_details_list_btn)
 
 }

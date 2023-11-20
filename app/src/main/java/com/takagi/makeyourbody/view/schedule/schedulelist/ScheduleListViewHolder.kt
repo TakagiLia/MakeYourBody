@@ -8,10 +8,10 @@ import com.takagi.makeyourbody.R
 
 class ScheduleListViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    val trainingdate = itemView.findViewById<TextView>(R.id.training_date)
+    val trainingDate: TextView = itemView.findViewById(R.id.training_date)
 
-    val training_target = itemView.findViewById<TextView>(R.id.training_target)
+    val trainingTarget: TextView = itemView.findViewById(R.id.training_target)
 
-    val trainingDetailBtn = itemView.findViewById<Button>(R.id.training_details_btn)
+    val trainingDetailBtn: Button = itemView.findViewById(R.id.training_details_btn)
 
 }

@@ -24,11 +24,11 @@ class LoginFragment : Fragment() {
 
             //ログイン画面からトップページに遷移
             loginButton.setOnClickListener { view ->
-                var loginName = loginName.text.toString()
-                var loginPass = loginPass.text.toString()
+                val loginName = loginName.text.toString()
+                val loginPass = loginPass.text.toString()
 
                 //ログイン判定
-                var result =
+                val result =
                     NiftyCloudApiClient().loginConfirm(loginName, loginPass)
 
                 if (result) {
@@ -62,7 +62,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
