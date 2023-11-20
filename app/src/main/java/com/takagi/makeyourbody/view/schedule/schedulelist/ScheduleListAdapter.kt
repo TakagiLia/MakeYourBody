@@ -23,8 +23,8 @@ class ScheduleListAdapter(
     override fun onBindViewHolder(holder: ScheduleListViewHolder, position: Int) {
         val menu = menuList[position]
 
-        holder.trainingdate.text = menu.menuDate
-        holder.training_target.text = menu.menuTarget
+        holder.trainingDate.text = menu.menuDate
+        holder.trainingTarget.text = menu.menuTarget
 
         holder.trainingDetailBtn.setOnClickListener {
             Log.d("---click trainingDetailBtn---", menu.toString())
