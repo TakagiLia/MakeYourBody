@@ -8,7 +8,7 @@ import com.takagi.makeyourbody.R
 
 class EditTrainingListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    val itemName = itemView.findViewById<TextView>(R.id.selected_item_name)
+    val itemName: TextView = itemView.findViewById(R.id.selected_item_name)
 
-    val  deleteBtn = itemView.findViewById<ImageButton>(R.id.selected_delete_btn)
+    val  deleteBtn: ImageButton = itemView.findViewById(R.id.selected_delete_btn)
 }
