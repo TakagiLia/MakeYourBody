@@ -58,7 +58,7 @@ class MakeExerciseFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentMakeExerciseBinding.inflate(inflater, container, false)
 
