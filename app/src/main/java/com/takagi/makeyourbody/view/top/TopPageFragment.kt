@@ -78,7 +78,7 @@ class TopPageFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentTopPageBinding.inflate(inflater, container, false)
 
         return binding.root
