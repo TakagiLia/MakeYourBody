@@ -36,6 +36,8 @@
 
     <!--年齢ダイアログで使用-->
     <string name="age_picker_title">年齢を入力してください</string>
+    <string name="height_picker_title">身長を入力してください</string>
+    <string name="weight_picker_title">体重を入力してください</string>
     <string name="age_picker_ok">決定</string>
     <string name="age_picker_cancel">キャンセル</string>
 
