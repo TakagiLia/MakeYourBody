@@ -2,10 +2,8 @@ package com.takagi.makeyourbody.view.dialog
 
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.DatePicker
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
@@ -13,9 +11,6 @@ import com.takagi.makeyourbody.R
 import java.util.Calendar
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener  {
-
-    private val _requestKey: String
-    get() = requireArguments().getString("request_key", "default")
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val calendar = Calendar.getInstance()
@@ -35,9 +30,4 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         setFragmentResult("request_key", bundle)
 
     }
-
-    override fun onCancel(dialog: DialogInterface) {
-        super.onCancel(dialog)
-    }
-
 }
