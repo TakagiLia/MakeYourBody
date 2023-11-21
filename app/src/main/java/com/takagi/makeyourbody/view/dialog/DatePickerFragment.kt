@@ -38,7 +38,6 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
 
     override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
-        Toast.makeText(context, "Cancelボタン押下", Toast.LENGTH_LONG).show()
     }
 
 }
