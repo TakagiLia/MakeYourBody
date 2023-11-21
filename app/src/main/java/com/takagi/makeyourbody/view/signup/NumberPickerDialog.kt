@@ -17,7 +17,7 @@ class AgePickerDialog : DialogFragment() {
     private var _binding: ViewNumberPickerBinding? = null
     private val binding get() = _binding!!
 
-    private val signUpViewModel : SignUpViewModel by activityViewModels()
+    private val signUpViewModel: SignUpViewModel by activityViewModels()
 
     private val age = DialogEnum.AGE
     private val height = DialogEnum.HEIGHT
@@ -48,15 +48,21 @@ class AgePickerDialog : DialogFragment() {
             tensPlacePicker.minValue = 0
             onesPlacePicker.minValue = 0
 
-            //身長体重の場合は3桁目を表示
-            if(dialogType == weight || dialogType == height){
-                    hundredsPlacePicker.isVisible = true
-                    hundredsPlacePicker.maxValue = 9
-                    hundredsPlacePicker.minValue = 0
+
+            if (dialogType == weight || dialogType == height) {
+
+                //身長体重の場合は3桁目を表示
+                hundredsPlacePicker.isVisible = true
+                hundredsPlacePicker.maxValue = 9
+                hundredsPlacePicker.minValue = 0
+                //Pickerータイトル適切に設定
+                pickerTitle.text =
+                    if (dialogType == height) getString(R.string.height_picker_title)
+                    else getString(R.string.weight_picker_title)
             }
 
             //ダイアログ初期値受け取り、加工
-            var receiveValue = when (dialogType) {
+            val receiveValue = when (dialogType) {
                 age -> signUpViewModel.age.value ?: 0
                 height -> signUpViewModel.height.value ?: 0
                 weight -> signUpViewModel.weight.value ?: 0
@@ -64,33 +70,51 @@ class AgePickerDialog : DialogFragment() {
             }
 
             //数字の桁をバラす
-            val hundredsPlace = if (receiveValue != 0 && dialogType != age) receiveValue.toString().substring(0, 1).toInt() else 0
-            val onesPlace = when(dialogType){
-                age -> if (receiveValue != 0)receiveValue.toString().substring(0, 1).toInt() else 0
-                else -> if (receiveValue != 0)receiveValue.toString().substring(2, 3).toInt() else 0
+
+            //100の位設定
+            val hundredsPlace =
+                if (receiveValue != 0 && dialogType != age) receiveValue.toString().substring(0, 1)
+                    .toInt() else 0
+
+            //10の位設定
+            val tensPlace = when (dialogType) {
+                age -> if (receiveValue != 0) receiveValue.toString().substring(0, 1).toInt() else 0
+                else -> if (receiveValue != 0) receiveValue.toString().substring(1, 2)
+                    .toInt() else 0
             }
-            val  tensPlace = if (receiveValue != 0)receiveValue.toString().substring(1, 2).toInt() else 0
+
+            //１の位設定
+            val onesPlace = when (dialogType) {
+                age -> if (receiveValue != 0) receiveValue.toString().substring(1, 2).toInt() else 0
+                else -> if (receiveValue != 0) receiveValue.toString().substring(2, 3)
+                    .toInt() else 0
+            }
 
             //ダイアログ初期値設定
-            hundredsPlacePicker.value = hundredsPlace
-            tensPlacePicker.value = tensPlace
             onesPlacePicker.value = onesPlace
+            tensPlacePicker.value = tensPlace
+            hundredsPlacePicker.value = hundredsPlace
 
             //ダイアログ決定ボタン押下
             pickerOkBtn.setOnClickListener {
                 when (dialogType) {
                     age -> {
-                        val setValue =(tensPlacePicker.value * 10) + onesPlacePicker.value
+                        val setValue = (tensPlacePicker.value * 10) + onesPlacePicker.value
                         signUpViewModel.setAge(setValue)
                     }
+
                     height -> {
-                        val setValue =(hundredsPlacePicker.value * 100) + (tensPlacePicker.value * 10) + onesPlacePicker.value
+                        val setValue =
+                            (hundredsPlacePicker.value * 100) + (tensPlacePicker.value * 10) + onesPlacePicker.value
                         signUpViewModel.setHeight(setValue)
                     }
+
                     weight -> {
-                        val setValue =(hundredsPlacePicker.value * 100) + (tensPlacePicker.value * 10) + onesPlacePicker.value
+                        val setValue =
+                            (hundredsPlacePicker.value * 100) + (tensPlacePicker.value * 10) + onesPlacePicker.value
                         signUpViewModel.setWeight(setValue)
                     }
+
                     else -> {}
                 }
                 dismiss()
@@ -107,7 +131,7 @@ class AgePickerDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = ViewNumberPickerBinding.inflate(inflater, container, false)
         return binding.root
     }
