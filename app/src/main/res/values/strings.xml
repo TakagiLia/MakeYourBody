@@ -72,6 +72,7 @@
     <string name="exercise_content">種目内容</string>
     <string name="exercise_name_hint">種目の名前を入力してください</string>
     <string name="exercise_content_hint">種目の内容を入力してください</string>
+    <string name="exercise_input_button_label">登録</string>
 
     <!--スケジュール確認画面で利用-->
     <string name="schedule_date_label">表示したいセッション日</string>

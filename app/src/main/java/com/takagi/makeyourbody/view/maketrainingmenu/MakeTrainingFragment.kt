@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.takagi.makeyourbody.NiftyCloudApiClient
 import com.takagi.makeyourbody.view.dialog.DatePickerFragment
-import com.takagi.makeyourbody.data.TrainingItem
 import com.takagi.makeyourbody.databinding.FragmentMakeTrainingBinding
 import com.takagi.makeyourbody.view.maketrainingmenu.edittraininglist.EditTrainingListAdapter
 import com.takagi.makeyourbody.view.traininglist.TrainingListFragment
