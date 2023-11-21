@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.takagi.makeyourbody.NiftyCloudApiClient
+import com.takagi.makeyourbody.R
 import com.takagi.makeyourbody.view.dialog.DatePickerFragment
 import com.takagi.makeyourbody.databinding.FragmentMakeTrainingBinding
 import com.takagi.makeyourbody.view.maketrainingmenu.edittraininglist.EditTrainingListAdapter
 import com.takagi.makeyourbody.view.traininglist.TrainingListFragment
-
 
 
 class MakeTrainingFragment : Fragment() {
@@ -111,13 +112,18 @@ class MakeTrainingFragment : Fragment() {
                 //メニュー登録ボタン押下
                 menuSaveBtn.setOnClickListener {
 
-                    //Dateに変換
                     val menuDate = viewModel.menuDate.value.toString()
 
-                    NiftyCloudApiClient().saveMenuObject(
-                        viewModel.selectedItems.value,
-                        menuDate, viewModel.menuTargetUser.value.toString()
-                    )
+                    runCatching {
+                        NiftyCloudApiClient().saveMenuObject(
+                            viewModel.selectedItems.value,
+                            menuDate, viewModel.menuTargetUser.value.toString()
+                        )
+                    }.onSuccess {
+                        findNavController().navigate(R.id.action_make_menu_to_top)
+                    }.onFailure {
+                        Log.d("--failure--", "メニュー登録に失敗しました" + it.message)
+                    }
                 }
             }
         }
