@@ -32,8 +32,19 @@ class ScheduleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //日付ボタン
+        //スケジュール表示(初期)                                                                                                                                                                                                                                                                                        リスト設定
+        menuList = NiftyCloudApiClient().getTrainingMenu()
+        binding.scheduleList.adapter = ScheduleListAdapter(menuList, onDetailBtnClick)
+
+        //日付絞り込み解除ボタン
         binding.scheduleDateBtn.setOnClickListener {
+            menuList = NiftyCloudApiClient().getTrainingMenu()
+            binding.scheduleList.adapter = ScheduleListAdapter(menuList, onDetailBtnClick)
+        }
+
+        //Editエリアタップで日付ダイアログ表示
+        binding.scheduleDateEdit.setOnClickListener {
+
             //日付のダイアログ表示
             DatePickerFragment().show(childFragmentManager, DatePickerFragment::class.java.name)
 
@@ -44,16 +55,12 @@ class ScheduleFragment : Fragment() {
             ) { _, result: Bundle ->
                 binding.scheduleDateEdit.text = result.getString("date_picker_value")
 
-                val resultSearch =  binding.scheduleDateEdit.text.toString().let{
+                val resultSearch = binding.scheduleDateEdit.text.toString().let {
                     NiftyCloudApiClient().searchTrainingMenu(it)
                 }
-                binding.scheduleList.adapter = ScheduleListAdapter(resultSearch,onDetailBtnClick)
+                binding.scheduleList.adapter = ScheduleListAdapter(resultSearch, onDetailBtnClick)
             }
         }
-
-        //スケジュール表示(初期)                                                                                                                                                                                                                                                                                        リスト設定
-        menuList = NiftyCloudApiClient().getTrainingMenu()
-        binding.scheduleList.adapter = ScheduleListAdapter(menuList,onDetailBtnClick)
     }
 
     override fun onCreateView(
