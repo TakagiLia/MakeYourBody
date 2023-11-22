@@ -38,6 +38,7 @@ class ScheduleFragment : Fragment() {
 
         //日付絞り込み解除ボタン
         binding.scheduleDateBtn.setOnClickListener {
+            binding.scheduleDateEdit.text = ""
             menuList = NiftyCloudApiClient().getTrainingMenu()
             binding.scheduleList.adapter = ScheduleListAdapter(menuList, onDetailBtnClick)
         }
