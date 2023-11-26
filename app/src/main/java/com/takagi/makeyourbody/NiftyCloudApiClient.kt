@@ -16,10 +16,10 @@ class NiftyCloudApiClient {
             //　Userインスタンスの生成
             val user = NCMBUser()
             // ユーザー名・パスワードを設定
-//            user.userName = nameEdit
-//            user.password = passEdit
-            user.userName = "yamamoto"
-            user.password = "1234"
+            user.userName = nameEdit
+            user.password = passEdit
+//            user.userName = "yamamoto"
+//            user.password = "1234"
             user.login()
         }.onSuccess {
             // ログインに成功した場合
