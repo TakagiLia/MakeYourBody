@@ -81,6 +81,8 @@
     <string name="schedule_list_target_label">対象ユーザ：</string>
     <string name="schedule_details_btn_label">詳細</string>
     <string name="schedule_list_label">スケジュール検索結果</string>
+    <string name="schedule_date_clear_button_label">条件クリア</string>
+    <string name="schedule_date_hint">条件入力</string>
 
     <!--メニュー詳細画面で利用-->
     <string name="menu_training_label">トレーニングメニュー</string>
