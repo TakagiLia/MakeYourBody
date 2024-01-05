@@ -3,6 +3,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -77,4 +78,8 @@ dependencies {
     implementation(files("libs/NCMB.jar"))
 
     implementation("com.google.android.material:material:1.11.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
