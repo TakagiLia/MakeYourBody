@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694652856481",
+    "project_id": "makeyourbody-0702",
+    "storage_bucket": "makeyourbody-0702.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694652856481:android:52b6ad455df2d977be68e0",
+        "android_client_info": {
+          "package_name": "com.takagi.makeyourbody"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlFMpxq8ZTnHZ71OgGiHSsITH8spV6OrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

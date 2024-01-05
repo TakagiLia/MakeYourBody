@@ -7,7 +7,7 @@ import java.util.Locale
 class CommonFormatter {
 
     //日付変換
-    fun dateConvert(dateString : String) : Date {
+    fun dateConvert(dateString : String) : Date? {
 
         val dateStringReplace = dateString.replace('/', '-')
         val local = Locale.getDefault()
