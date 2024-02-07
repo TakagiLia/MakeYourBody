@@ -18,3 +18,4 @@ app/release/
 .idea/gradle.xml
 .idea/kotlinc.xml
 .idea/misc.xml
+.idea/migrations.xml
