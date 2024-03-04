@@ -1,15 +1,17 @@
 package com.takagi.makeyourbody.view.exercise
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import com.takagi.makeyourbody.databinding.FragmentMakeExerciseBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.takagi.makeyourbody.FirebaseApiClient
 import com.takagi.makeyourbody.R
-import com.takagi.makeyourbody.NiftyCloudApiClient
+import com.takagi.makeyourbody.data.TrainingItem
+import com.takagi.makeyourbody.databinding.FragmentMakeExerciseBinding
 
 class MakeExerciseFragment : Fragment() {
 
@@ -22,7 +24,7 @@ class MakeExerciseFragment : Fragment() {
         binding.apply {
 
             exerciseNameEdit.addTextChangedListener { nameEditText ->
-                if (nameEditText?.isEmpty() == true|| exerciseContentEdit.text.isEmpty()){
+                if (nameEditText?.isEmpty() == true || exerciseContentEdit.text.isEmpty()) {
                     exerciseRegisterBtn.visibility = View.INVISIBLE
                     exerciseRegisterBtn.isEnabled = false
                 } else {
@@ -32,22 +34,28 @@ class MakeExerciseFragment : Fragment() {
             }
 
             exerciseContentEdit.addTextChangedListener { contentEditText ->
-                if(exerciseNameEdit.text.isEmpty() || contentEditText?.isEmpty() == true){
+                if (exerciseNameEdit.text.isEmpty() || contentEditText?.isEmpty() == true) {
                     exerciseRegisterBtn.visibility = View.INVISIBLE
                     exerciseRegisterBtn.isEnabled = false
-                }else{
+                } else {
                     exerciseRegisterBtn.visibility = View.VISIBLE
                     exerciseRegisterBtn.isEnabled = true
                 }
             }
 
-
+            //トレーニングアイテム登録処理
             exerciseRegisterBtn.setOnClickListener {
-                NiftyCloudApiClient().saveExercise(
-                    exerciseNameEdit.text.toString(),
-                    exerciseContentEdit.text.toString(),""
-                )
-                Navigation.findNavController(view).navigate(R.id.action_make_exercise_to_top)
+                FirebaseApiClient().saveExercise(
+                    TrainingItem(
+                        exerciseNameEdit.text.toString(),
+                        exerciseContentEdit.text.toString(),""
+                    )
+                ).addOnSuccessListener {
+                    Navigation.findNavController(view).navigate(R.id.action_make_exercise_to_top)
+
+                }.addOnFailureListener { exception ->
+                    Log.w("failure", "Error getting documents: ", exception)
+                }
             }
 
         }
