@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LogoutDialog : DialogFragment() {
 
@@ -20,7 +22,7 @@ class LogoutDialog : DialogFragment() {
                     R.string.dialog_yes
                 ) { _, _ ->
                     Log.d("--success--", "ログアウトする")
-                    NiftyCloudApiClient().logOut()
+                    Firebase.auth.signOut()
                     findNavController().navigate(R.id.action_login_screen)
                 }
                 .setNegativeButton(
